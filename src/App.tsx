@@ -1,5 +1,6 @@
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
+import { Snapshot } from './components/Snapshot'
 import { About } from './components/About'
 import { Work } from './components/Work'
 import { Engineering } from './components/Engineering'
@@ -20,6 +21,7 @@ function App() {
         <Hero />
         {/* 에디토리얼 본문: 48px+ 섹션 리듬, 1200px 중앙 정렬 */}
         <div className="space-y-24 py-24 sm:space-y-28 sm:py-28">
+          <Snapshot />
           <About />
           <Work />
           <Engineering />

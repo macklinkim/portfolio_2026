@@ -1,10 +1,10 @@
 import { Section } from './Section'
 import { Reveal } from './Reveal'
-import { career, credentials } from '../data/site'
+import { career } from '../data/site'
 
 /**
- * Background — 경력 타임라인 + 학력 + 자격. 이력서와 일치.
- * 타임라인 레이아웃 패밀리(좌측 보더 레일).
+ * Background — 주요 경력의 성과 중심 타임라인(상세). 이력서와 일치.
+ * 학력·자격·전체 경력 목록은 Profile(Snapshot) 섹션이 담당.
  */
 export function Background() {
   return (
@@ -31,29 +31,6 @@ export function Background() {
           </Reveal>
         ))}
       </ol>
-
-      <Reveal delay={0.1}>
-        <div className="mt-12 grid gap-8 border-t border-sage pt-8 sm:grid-cols-2">
-          <div>
-            <p className="text-[13px] tracking-[0.04em] text-steel">Education</p>
-            <p className="font-display mt-3 text-[20px] text-ink">{credentials.education.school}</p>
-            <p className="mt-1 text-[14px] text-iron">{credentials.education.detail}</p>
-          </div>
-          <div>
-            <p className="text-[13px] tracking-[0.04em] text-steel">Certifications</p>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {credentials.certs.map((c) => (
-                <li
-                  key={c}
-                  className="rounded-[var(--radius-buttons)] border border-sage bg-linen px-2.5 py-1 text-[13px] text-iron"
-                >
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Reveal>
     </Section>
   )
 }

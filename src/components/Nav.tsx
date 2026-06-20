@@ -50,7 +50,7 @@ export function Nav() {
               <a
                 href={`#${item.id}`}
                 aria-current={active === item.id ? 'true' : undefined}
-                className={`block rounded-[var(--radius-nav)] px-3 py-1.5 text-[15px] tracking-tight transition-colors duration-200 ${
+                className={`block whitespace-nowrap rounded-[var(--radius-nav)] px-3 py-1.5 text-[15px] tracking-tight transition-colors duration-200 ${
                   active === item.id ? 'bg-paper/12 text-paper' : 'text-mist hover:text-paper'
                 }`}
               >

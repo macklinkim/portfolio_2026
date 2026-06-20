@@ -17,8 +17,9 @@ export const profile = {
 } as const
 
 export const nav = [
+  { id: 'profile', label: 'Profile' },
   { id: 'about', label: 'About' },
-  { id: 'work', label: 'Selected Work' },
+  { id: 'work', label: 'Work' },
   { id: 'engineering', label: 'Engineering' },
   { id: 'background', label: 'Background' },
   { id: 'contact', label: 'Contact' },
@@ -140,3 +141,41 @@ export const credentials = {
   education: { school: '숭실대학교 컴퓨터학부', detail: '졸업 · 학점 3.5 / 4.5' },
   certs: ['TOEIC 835', '정보처리기사', 'OCJP (Oracle Certified Java)', '리눅스마스터 2급'],
 }
+
+/* ─── Profile snapshot — 출처: intro_text.txt (이력서 원문) ─── */
+
+export const positioning =
+  '7년 11개월, 시스템 소프트웨어·웹·DB부터 AI 개발 환경 구축까지 두루 거친 백엔드 중심 풀스택 엔지니어.'
+
+export type CareerRow = { period: string; company: string; team: string; role: string }
+
+export const careerCompact: CareerRow[] = [
+  { period: '2026.02 – 재직', company: '맑은소프트', team: '환급·글로벌 사업팀', role: '과장' },
+  { period: '2025.10 – 2026.01', company: '㈜신원', team: 'Smart Factory', role: '대리' },
+  { period: '2020.02 – 2023.10', company: '국군 제3707부대', team: '정보기획실', role: '6급 군무원' },
+  { period: '2017.08 – 2019.01', company: '대한건설협회', team: '정보관리실', role: '사원' },
+  { period: '2016.07 – 2017.08', company: '국민건강보험공단', team: '정보기획실', role: '주임' },
+  { period: '2015.03 – 2015.10', company: '㈜티맥스데이터', team: '연구개발1실', role: '연구원' },
+]
+
+export const educationList = [
+  { period: '2007.03 – 2014.08', school: '숭실대학교 (서울)', detail: '컴퓨터학 전공 · 학점 3.5 / 4.5' },
+  { period: '2004.03 – 2007.02', school: '북평고등학교 (강원)', detail: '이과 계열' },
+]
+
+export const skillGroups: { label: string; items: string[] }[] = [
+  { label: 'Backend', items: ['Java', 'Spring Boot', 'Spring Framework', 'MyBatis', 'Node.js', 'Nest.js', 'RESTful API'] },
+  { label: 'Data · DB', items: ['PostgreSQL', 'Oracle', 'MSSQL', 'MySQL', 'MongoDB', '쿼리 튜닝'] },
+  { label: 'Cloud · DevOps', items: ['AWS (S3·Lambda·EC2·CloudFront·EB)', 'Linux 서버 운영', 'GitHub / GitLab CI/CD', '모니터링 툴 제작'] },
+  { label: 'Frontend · AI', items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Claude Code · MCP', 'Gemini CLI'] },
+  { label: 'Systems', items: ['C · C++ (Kernel / OS)'] },
+]
+
+export const competencies = [
+  'Java · Spring Boot · MyBatis 백엔드 시스템 개발 7년 이상 실무',
+  'PostgreSQL · Oracle · MSSQL · MySQL · MongoDB 활용·튜닝 7년 이상',
+  'Linux 웹/DB 서버 운영 5년 이상, AWS 클라우드 구축·운영',
+  'LMS 백엔드 · 35대 운영 서버 무중단 암호화 · 다중 PG 결제 연동',
+  'Claude Code · MCP 기반 AI 개발 환경 자체 구축(바이브 코딩)',
+  '해외 프로젝트 수행 · 영어 회화(TOEIC 835) · C/C++ 커널 기능 개발 다수',
+]
