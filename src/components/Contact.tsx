@@ -17,11 +17,10 @@ export function Contact() {
         <Reveal>
           <p className="eyebrow">Contact</p>
           <h2 className="font-display mt-5 max-w-[18ch] text-[clamp(30px,5vw,52px)] leading-[1.08] text-ink">
-            함께 만들 이야기가 있다면,{' '}
+            함께 만들 이야기,{' '}
             <a href={profile.github} target="_blank" rel="noreferrer" className="ink-link">
               연결
             </a>
-            <span className="text-ink-soft">해요.</span>
           </h2>
         </Reveal>
 

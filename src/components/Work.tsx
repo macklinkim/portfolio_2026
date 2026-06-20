@@ -90,7 +90,7 @@ export function Work() {
     <Section id="work" label="Selected Work">
       <Reveal>
         <h2 className="font-display text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
-          직접 만들고 운영까지 끌고 간 세 가지.
+          직접 만든 세 프로젝트
         </h2>
       </Reveal>
       <div className="mt-12 grid gap-14">

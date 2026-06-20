@@ -10,11 +10,11 @@ export function About() {
     <Section id="about" label="About">
       <Reveal>
         <h2 className="font-display text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
-          AI를 쓰는 데 그치지 않고,{' '}
+          AI를 쓰는 사람을 넘어,{' '}
           <a href="#engineering" className="ink-link">
             직접 만드는
           </a>{' '}
-          개발자.
+          개발자
         </h2>
       </Reveal>
 
