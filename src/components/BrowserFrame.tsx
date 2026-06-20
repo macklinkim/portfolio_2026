@@ -18,11 +18,10 @@ export function BrowserFrame({
 }) {
   return (
     <div
-      className={`group/frame overflow-hidden rounded-[var(--radius-elevatedcards)] border border-sage bg-paper transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 ${className}`}
-      style={{ boxShadow: 'var(--shadow-card)' }}
+      className={`group/frame overflow-hidden rounded-[var(--radius-elevatedcards)] border border-hairline bg-paper transition-[transform,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-ink/30 ${className}`}
     >
       {/* 브라우저 크롬 바 */}
-      <div className="flex items-center gap-2 border-b border-sage bg-linen px-3.5 py-2.5">
+      <div className="flex items-center gap-2 border-b border-hairline bg-linen px-3.5 py-2.5">
         <span className="flex gap-1.5" aria-hidden>
           <span className="size-2.5 rounded-full bg-mist" />
           <span className="size-2.5 rounded-full bg-mist" />

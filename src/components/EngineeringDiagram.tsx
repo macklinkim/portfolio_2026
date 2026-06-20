@@ -50,10 +50,7 @@ function Node({
 
 export function EngineeringDiagram() {
   return (
-    <div
-      className="rounded-[var(--radius-elevatedcards)] border border-sage bg-paper p-6 sm:p-8"
-      style={{ boxShadow: 'var(--shadow-card)' }}
-    >
+    <div className="rounded-[var(--radius-elevatedcards)] border border-hairline bg-paper p-6 sm:p-8">
       {/* 진입점 */}
       <Node delay={0}>
         <div className="inline-flex items-center gap-2 rounded-[var(--radius-buttons)] bg-graphite-night px-3.5 py-2 text-[14px] font-medium text-paper">

@@ -17,10 +17,7 @@ export function Section({ id, label, children, className }: SectionProps) {
     <section id={id} className={`scroll-mt-24 ${className ?? ''}`}>
       <div className="container-page grid grid-cols-1 gap-y-8 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-x-16">
         <Reveal as="div">
-          <div className="flex items-center gap-3 lg:sticky lg:top-28 lg:block">
-            <span aria-hidden className="h-px w-8 bg-sage lg:mb-4 lg:w-12" />
-            <p className="text-[13px] font-medium tracking-[0.04em] text-steel">{label}</p>
-          </div>
+          <p className="eyebrow lg:sticky lg:top-28">{label}</p>
         </Reveal>
         <div>{children}</div>
       </div>

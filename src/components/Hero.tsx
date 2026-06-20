@@ -1,60 +1,77 @@
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react'
 import { motion, useReducedMotion } from 'motion/react'
 import { profile } from '../data/site'
 import { HeroBackdrop } from './HeroBackdrop'
 
 /**
- * Full-Bleed Illustrated Hero — 풀블리드 회화풍 배경 위에 좌하단 프로스티드 글래스 카드.
- * 배경 일러스트(hero.jpg)는 "엣지/분산/AI" 분위기의 회화풍. 없을 경우 딥 그래파이트 캔버스로 폴백.
+ * Hero — 라이트 에디토리얼(refero "graph paper"). 페이지 전체와 동일한 한 가지 캔버스 색.
+ * 모노 eyebrow + 세리프 투톤 헤드라인 + 코발트 인라인 링크 + 라임 프라이머리 CTA(1개).
+ * 다크 밴드/끊김 없음 — 본문과 매끄럽게 연결.
  */
 export function Hero() {
   const reduce = useReducedMotion()
+  const ease = [0.16, 1, 0.3, 1] as const
   return (
-    <section id="top" className="relative min-h-[100dvh] w-full overflow-hidden bg-graphite-night">
-      {/* 회화풍 트와일라잇 캔버스 — 분산/AI 컨셉(데이터 별자리 + 도시 스카이라인) */}
+    <section id="top" className="relative flex min-h-[92svh] items-center overflow-hidden">
       <HeroBackdrop />
-      {/* 하단 가독성 스크림 */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-      {/* 다크 히어로 → 크림 본문으로 매끄럽게 전환(끊김 방지) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-cream sm:h-44"
-      />
+      <div className="container-page relative pb-16 pt-32 lg:pt-28">
+        <div className="max-w-[46rem]">
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+            className="eyebrow"
+          >
+            {profile.name} · {profile.alias} — 풀스택 엔지니어
+          </motion.p>
 
-      <div className="container-page relative flex min-h-[100dvh] flex-col justify-end pb-14 pt-28 sm:pb-20">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="max-w-[44rem] rounded-[var(--radius-herocards)] border border-white/15 bg-white/10 p-7 backdrop-blur-xl sm:p-9"
-          style={{ boxShadow: 'var(--shadow-frosted)' }}
-        >
-          <p className="text-[13px] uppercase tracking-[0.18em] text-white/70">
-            {profile.name} · {profile.alias} — {profile.role}
-          </p>
-          <h1 className="font-display mt-5 text-[clamp(34px,6vw,54px)] text-white">
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.08 }}
+            className="font-display mt-6 text-balance text-[clamp(34px,5.2vw,56px)] leading-[1.1] text-ink"
+          >
             AI 개발 환경을 직접{' '}
-            <a href="#engineering" className="ink-link" style={{ backgroundPosition: '0 92%' }}>
+            <a href="#engineering" className="ink-link whitespace-nowrap">
               설계하는
             </a>{' '}
-            풀스택 엔지니어.
-          </h1>
-          <p className="mt-5 max-w-[46ch] text-[16px] leading-relaxed text-white/85 sm:text-[18px]">
+            <span className="text-ink-soft">풀스택 엔지니어.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.18 }}
+            className="mt-6 max-w-[46ch] text-[17px] leading-[1.7] text-iron sm:text-[18px]"
+          >
             {profile.identity}
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+          </motion.p>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.26 }}
+            className="mt-9 flex flex-wrap items-center gap-3"
+          >
             <a
               href="#work"
-              className="group inline-flex items-center gap-2 text-[15px] font-medium text-white"
+              className="group inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-[15px] font-semibold text-ink transition-transform duration-300 hover:-translate-y-0.5"
             >
-              <span className="ink-link" style={{ backgroundPosition: '0 100%' }}>
-                Selected work 보기
-              </span>
-              <ArrowRight size={17} weight="bold" className="text-slate-cyan transition-transform duration-300 group-hover:translate-x-1" />
+              Selected work 보기
+              <ArrowRight size={17} weight="bold" className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-            <span className="text-[14px] text-white/55">경력 {profile.experience}</span>
-          </div>
-        </motion.div>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-hairline bg-paper px-5 py-2.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:border-ink"
+            >
+              GitHub
+              <ArrowUpRight size={15} weight="bold" className="text-cobalt transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <span className="ml-1 font-mono text-[12.5px] text-steel">경력 {profile.experience}</span>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

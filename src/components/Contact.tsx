@@ -3,8 +3,8 @@ import { Reveal } from './Reveal'
 import { profile } from '../data/site'
 
 /**
- * Contact + Footer — GitHub / Velog 만. 개인정보(전화·주소·원본 이메일) 노출 금지.
- * 풀블리드 다크 밴드(에디토리얼 클로징 모먼트), 다른 레이아웃 패밀리.
+ * Contact + Footer — 라이트 캔버스(페이지 전체와 동일한 색). GitHub / Velog 만.
+ * 개인정보(전화·주소·원본 이메일) 노출 금지. 하단 hairline 분리(그림자 없음).
  */
 export function Contact() {
   const links = [
@@ -12,16 +12,16 @@ export function Contact() {
     { label: 'Velog', handle: 'velog.io/@mackhokim', href: profile.velog, Icon: PenNib },
   ]
   return (
-    <footer id="contact" className="scroll-mt-24 bg-graphite-night text-paper">
-      <div className="container-page py-20 sm:py-24">
+    <footer id="contact" className="scroll-mt-24 border-t border-hairline">
+      <div className="container-page py-24 sm:py-28">
         <Reveal>
-          <p className="text-[13px] tracking-[0.04em] text-mist">Contact</p>
-          <h2 className="font-display mt-5 max-w-[20ch] text-[clamp(30px,5vw,50px)] text-white">
+          <p className="eyebrow">Contact</p>
+          <h2 className="font-display mt-5 max-w-[18ch] text-[clamp(30px,5vw,52px)] leading-[1.08] text-ink">
             함께 만들 이야기가 있다면,{' '}
-            <a href={profile.github} target="_blank" rel="noreferrer" className="ink-link" style={{ backgroundPosition: '0 92%' }}>
+            <a href={profile.github} target="_blank" rel="noreferrer" className="ink-link">
               연결
             </a>
-            해요.
+            <span className="text-ink-soft">해요.</span>
           </h2>
         </Reveal>
 
@@ -32,26 +32,26 @@ export function Contact() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-between rounded-[var(--radius-cards)] border border-white/12 bg-white/[0.04] px-5 py-4 transition-colors duration-200 hover:bg-white/[0.08]"
+                className="group flex items-center justify-between rounded-[var(--radius-cards)] border border-hairline bg-paper px-5 py-4 transition-colors duration-200 hover:border-ink"
               >
                 <span className="flex items-center gap-3.5">
-                  <Icon size={22} weight="regular" className="text-slate-cyan" />
+                  <Icon size={22} weight="regular" className="text-cobalt" />
                   <span>
-                    <span className="block text-[15px] font-medium text-white">{label}</span>
-                    <span className="block text-[13px] text-mist">{handle}</span>
+                    <span className="block text-[15px] font-medium text-ink">{label}</span>
+                    <span className="block font-mono text-[12.5px] text-steel">{handle}</span>
                   </span>
                 </span>
-                <ArrowUpRight size={18} weight="bold" className="text-mist transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                <ArrowUpRight size={18} weight="bold" className="text-steel transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
               </a>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-[13px] text-mist">
+        <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6 font-mono text-[12px] text-steel">
           <span>
-            {profile.name} ({profile.alias}) · {profile.role}
+            {profile.name} ({profile.alias}) · 풀스택 소프트웨어 엔지니어
           </span>
-          <span>© 2026 Built with React · Tailwind</span>
+          <span>© 2026 · Built with React · Tailwind</span>
         </div>
       </div>
     </footer>
