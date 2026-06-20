@@ -1,6 +1,7 @@
 import { ArrowRight } from '@phosphor-icons/react'
 import { motion, useReducedMotion } from 'motion/react'
 import { profile } from '../data/site'
+import { HeroBackdrop } from './HeroBackdrop'
 
 /**
  * Full-Bleed Illustrated Hero — 풀블리드 회화풍 배경 위에 좌하단 프로스티드 글래스 카드.
@@ -10,18 +11,10 @@ export function Hero() {
   const reduce = useReducedMotion()
   return (
     <section id="top" className="relative min-h-[100dvh] w-full overflow-hidden bg-graphite-night">
-      {/* 회화풍 일러스트 배경 (다음 반복에서 생성 자산으로 교체) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundColor: '#1b1b24',
-          backgroundImage:
-            'radial-gradient(120% 90% at 78% 12%, rgba(65,161,207,0.22), transparent 55%), radial-gradient(90% 80% at 12% 100%, rgba(0,129,192,0.16), transparent 60%)',
-        }}
-      />
+      {/* 회화풍 트와일라잇 캔버스 — 분산/AI 컨셉(데이터 별자리 + 도시 스카이라인) */}
+      <HeroBackdrop />
       {/* 하단 가독성 스크림 */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
 
       <div className="container-page relative flex min-h-[100dvh] flex-col justify-end pb-14 pt-28 sm:pb-20">
         <motion.div
