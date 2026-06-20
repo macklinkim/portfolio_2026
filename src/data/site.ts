@@ -124,6 +124,7 @@ export type Job = {
   period: string
   role: string
   detail: string
+  tags: string[]
 }
 
 export const career: Job[] = [
@@ -133,6 +134,7 @@ export const career: Job[] = [
     role: '과장 · 웹 개발',
     detail:
       'LMS ‘EHRD’ 백엔드. 성명 양방향 암호화를 35대 운영 서버에 무중단 마이그레이션, KG모빌리언스 통합결제 모듈 단독 구축(HMAC-SHA256 무결성 검증·자동 망취소·PII 암호화), AI 로그관제 파일럿(Gemini + Fluent Bit + Next.js).',
+    tags: ['35대 무중단 마이그레이션', 'KG모빌리언스 결제 단독 구축', 'AI 로그관제 파일럿'],
   },
   {
     company: '신원글로벌',
@@ -140,6 +142,7 @@ export const career: Job[] = [
     role: 'SmartFactory MES · 전자세관신고',
     detail:
       'Spring Framework, MyBatis, Nexacro 기반 MES와 전자세관신고(인도네시아 출장). 펌웨어용 HA 이중화·데몬 서비스 구축, AWS S3 연동 파일 관리, Caffeine 캐시로 응답속도 개선.',
+    tags: ['HA 이중화 · 데몬 서비스', 'AWS S3 파일 관리', 'Caffeine 캐시 튜닝'],
   },
   {
     company: '티맥스데이터 외',
@@ -147,6 +150,7 @@ export const career: Job[] = [
     role: '시스템 SW · 웹 · DB',
     detail:
       '티맥스데이터에서 출발해 국군제3707부대 군무원, 대한건설협회, 국민건강보험공단 등에서 시스템 소프트웨어(OS 개발)·웹·DB까지 폭넓은 실무를 거쳤다.',
+    tags: ['시스템 SW (OS 개발)', '웹 · DB', '국방 · 공공 · 협회'],
   },
 ]
 
