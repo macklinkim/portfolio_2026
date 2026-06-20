@@ -29,7 +29,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.08 }}
-            className="font-display mt-6 text-balance text-[clamp(34px,5.2vw,56px)] leading-[1.1] text-ink"
+            className="font-display mt-6 text-balance break-keep text-[clamp(34px,5.2vw,56px)] leading-[1.1] text-ink"
           >
             AI 개발 환경을 직접{' '}
             <a href="#engineering" className="ink-link whitespace-nowrap">

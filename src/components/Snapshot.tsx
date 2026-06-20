@@ -2,7 +2,7 @@ import { Section } from './Section'
 import { Reveal } from './Reveal'
 import { ProfileFigure } from './ProfileFigure'
 import {
-  positioning,
+  profile,
   competencies,
   skillGroups,
   careerCompact,
@@ -29,9 +29,10 @@ export function Snapshot() {
   return (
     <Section id="profile" label="Profile">
       <Reveal>
-        <h2 className="font-display max-w-[24ch] text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
-          {positioning}
+        <h2 className="font-display whitespace-nowrap text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
+          7년차 백엔드 엔지니어
         </h2>
+        <p className="mt-3 break-keep text-[15px] text-steel">{profile.focus}</p>
       </Reveal>
 
       <Reveal delay={0.05}>

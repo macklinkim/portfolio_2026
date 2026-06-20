@@ -16,7 +16,7 @@ export function Background() {
   return (
     <Section id="background" label="Background">
       <Reveal>
-        <h2 className="font-display text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
+        <h2 className="font-display whitespace-nowrap text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
           운영 규모의 책임
         </h2>
       </Reveal>

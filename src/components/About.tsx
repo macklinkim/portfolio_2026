@@ -10,8 +10,7 @@ export function About() {
   return (
     <Section id="about" label="About">
       <Reveal>
-        <h2 className="font-display text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
-          AI를 쓰는 사람을 넘어,{' '}
+        <h2 className="font-display whitespace-nowrap text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
           <a href="#engineering" className="ink-link">
             직접 만드는
           </a>{' '}
