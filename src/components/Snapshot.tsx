@@ -28,9 +28,9 @@ export function Snapshot() {
   return (
     <Section id="profile" label="Profile">
       <Reveal>
-        <p className="font-display max-w-[26ch] text-[clamp(22px,3vw,30px)] leading-[1.2] text-ink">
+        <h2 className="font-display max-w-[24ch] text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
           {positioning}
-        </p>
+        </h2>
       </Reveal>
 
       <div className="mt-10 grid gap-8">

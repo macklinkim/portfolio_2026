@@ -10,7 +10,7 @@ export const profile = {
   role: '풀스택 소프트웨어 엔지니어',
   focus: '백엔드 중심 · AI 개발환경 자체 구축',
   identity:
-    'AI를 가져다 쓰는 데서 멈추지 않고, 직접 환경을 설계·구축해 생산성과 운영 안정성을 함께 추구하는 개발자.',
+    'AI를 쓰는 데 그치지 않고, 개발 환경을 직접 설계해 생산성과 운영 안정성을 함께 잡습니다.',
   experience: '약 7년 11개월',
   github: 'https://github.com/macklinkim',
   velog: 'https://velog.io/@mackhokim',
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     index: '01',
     title: 'AI 시장분석 대시보드',
     tagline: 'LangGraph 멀티 에이전트로 미국 섹터 순환매를 읽는다',
-    body: 'Data·News·Analyst 세 개의 LangGraph 에이전트와 Claude를 엮어 미국 섹터 순환매를 분석한다. 신호를 3단계로 교차 검증해 환각을 걸러내고, FastAPI와 APScheduler로 분석 배치를 자동화했다.',
+    body: 'LangGraph 에이전트 3개(Data·News·Analyst)와 Claude로 미국 섹터 순환매를 분석합니다. 신호를 3단계로 교차 검증해 환각을 걸러내고, FastAPI·APScheduler로 분석 배치를 자동화했습니다.',
     stack: ['LangGraph', 'Claude', 'FastAPI', 'APScheduler', 'Supabase'],
     highlights: [
       { value: '3-Agent', label: 'Data · News · Analyst 파이프라인' },
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     index: '02',
     title: 'Geo Pixel Board',
     tagline: '그 장소에 실제로 있어야만 그릴 수 있는 지도 위 픽셀 캔버스',
-    body: '실제 그 위치에 있어야만 한 픽셀을 찍을 수 있는 위치 기반 실시간 협업 캔버스. Cloudflare Durable Objects를 지도 셀당 하나씩 두고 WebSocket Hibernation으로 연결을 유지하며, 위치 검증은 서버 권위로 게이트해 위변조를 막는다.',
+    body: '그 장소에 실제로 있어야만 픽셀을 찍을 수 있는 실시간 협업 캔버스입니다. 지도 셀마다 Cloudflare Durable Object를 두고 WebSocket Hibernation으로 연결을 유지하며, 위치 검증은 서버에서 처리해 위변조를 막습니다.',
     stack: ['Cloudflare Workers', 'Durable Objects', 'WebSocket Hibernation', '서버권위 위치게이트'],
     highlights: [
       { value: '셀당 1 DO', label: '지도 셀 단위 분산 상태' },
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     index: '03',
     title: '좋소판별기',
     tagline: '국민연금 공공데이터 55만 사업장으로 읽는 중소기업 근무여건',
-    body: '국민연금 공공데이터 약 55만 개 사업장 정보로 중소기업의 근무여건 위험도를 추정·시각화한다. 라이브러리 없이 직접 그린 SVG 차트와 컬럼형 JSON + 지연 인덱스 구조로 데이터 적재량을 약 96배 절감했다.',
+    body: '국민연금 공공데이터 55만 사업장으로 중소기업 근무여건 위험도를 추정·시각화합니다. 차트는 라이브러리 없이 직접 그렸고, 컬럼형 JSON·지연 인덱스로 데이터 적재량을 약 96배 줄였습니다.',
     stack: ['Next.js 15', '무라이브러리 SVG 차트', '컬럼형 JSON', '지연 인덱스'],
     highlights: [
       { value: '55만', label: '사업장 공공데이터' },
@@ -98,7 +98,7 @@ export const projects: Project[] = [
 ]
 
 export const engineering = {
-  lead: '사내 레거시 JSP 프로젝트(맑은프레임워크, 운영 35대 멀티사이트)에 Claude Code 기반 개발 환경을 직접 설계해 도입했다. AI를 붙이기 전에 안전장치부터 세웠다.',
+  lead: '운영 35대 규모의 레거시 JSP 프로젝트에 Claude Code 기반 개발 환경을 직접 설계해 도입했습니다. AI를 붙이기 전에 안전장치부터 세웠습니다.',
   pillars: [
     {
       title: 'MCP 서버 8종 자체 제작',
@@ -157,8 +157,7 @@ export const credentials = {
 
 /* ─── Profile snapshot — 출처: intro_text.txt (이력서 원문) ─── */
 
-export const positioning =
-  '7년 11개월, 시스템 소프트웨어·웹·DB부터 AI 개발 환경 구축까지 두루 거친 백엔드 중심 풀스택 엔지니어.'
+export const positioning = '운영 규모의 시스템을 만드는 7년차 백엔드 엔지니어.'
 
 export type CareerRow = { period: string; company: string; team: string; role: string }
 

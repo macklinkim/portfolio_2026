@@ -10,8 +10,8 @@ export function Background() {
   return (
     <Section id="background" label="Background">
       <Reveal>
-        <h2 className="font-display text-[clamp(28px,4.4vw,44px)] text-ink">
-          시스템 소프트웨어부터 운영 규모의 책임까지.
+        <h2 className="font-display text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
+          운영 규모의 책임을 맡아왔습니다.
         </h2>
       </Reveal>
 

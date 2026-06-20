@@ -1,44 +1,35 @@
 import { Section } from './Section'
 import { Reveal } from './Reveal'
+import { EngineeringDiagram } from './EngineeringDiagram'
 import { engineering } from '../data/site'
 
 /**
  * Engineering at work — MCP 하네스. 배포 제품이 아니라 실무 인프라.
- * Work(스택 엔트리)와 다른 레이아웃 패밀리: 리드 + 다이어그램 카드 2x2.
+ * 리드 텍스트 + 아키텍처 흐름 다이어그램(카드 그리드 대신 연결된 시스템).
  */
 export function Engineering() {
   return (
     <Section id="engineering" label="Engineering at work">
       <Reveal>
-        <h2 className="font-display text-[clamp(28px,4.4vw,44px)] text-ink">
-          AI를 붙이기 전에,{' '}
+        <h2 className="font-display text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
+          운영 환경에 맞춘{' '}
           <span className="ink-link" style={{ backgroundPosition: '0 92%' }}>
-            안전장치
+            AI 하네스
           </span>
-          부터 세웠다.
+          를 직접 구축했습니다.
         </h2>
       </Reveal>
       <Reveal delay={0.05}>
-        <p className="mt-6 max-w-[64ch] text-[16px] leading-[1.65] text-carbon sm:text-[17px]">
+        <p className="mt-5 max-w-[60ch] text-[16px] leading-[1.7] text-carbon">
           {engineering.lead}
         </p>
       </Reveal>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        {engineering.pillars.map((pillar, i) => (
-          <Reveal
-            key={pillar.title}
-            delay={0.05 * i}
-            as="div"
-            className="rounded-[var(--radius-elevatedcards)] border border-sage bg-paper p-6"
-          >
-            <div style={{ boxShadow: 'none' }}>
-              <h3 className="font-display text-[20px] text-ink">{pillar.title}</h3>
-              <p className="mt-3 text-[14.5px] leading-[1.6] text-iron">{pillar.body}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+      <Reveal delay={0.1}>
+        <div className="mt-10">
+          <EngineeringDiagram />
+        </div>
+      </Reveal>
     </Section>
   )
 }

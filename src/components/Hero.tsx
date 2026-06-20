@@ -15,6 +15,11 @@ export function Hero() {
       <HeroBackdrop />
       {/* 하단 가독성 스크림 */}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+      {/* 다크 히어로 → 크림 본문으로 매끄럽게 전환(끊김 방지) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-cream sm:h-44"
+      />
 
       <div className="container-page relative flex min-h-[100dvh] flex-col justify-end pb-14 pt-28 sm:pb-20">
         <motion.div
