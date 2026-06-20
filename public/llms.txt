@@ -1,0 +1,27 @@
+# 김천호 (Mack) — 풀스택 소프트웨어 엔지니어
+
+> 백엔드 중심 풀스택 소프트웨어 엔지니어 김천호(Mack)의 1페이지 포트폴리오.
+> 약 7년 11개월 경력. AI를 쓰는 데 그치지 않고 DB·SSH·운영 서버를 직접 연결한
+> Claude Code 기반 개발 환경을 자체 구축한다. 운영 35대 규모 시스템의 책임을
+> 직접 감당한 경험을 가진 엔지니어.
+
+## 핵심 역량
+- Java · Spring Boot · MyBatis 백엔드 시스템 개발 7년 이상
+- PostgreSQL · Oracle · MSSQL · MySQL · MongoDB 활용·튜닝
+- Linux 웹/DB 서버 운영 5년 이상, AWS 클라우드 구축·운영
+- Claude Code · MCP 기반 AI 개발 환경 자체 구축
+
+## Projects
+- [AI 시장분석 대시보드](https://sectoranalyzerfrontend2026.kopserf.workers.dev): LangGraph 멀티 에이전트(Data·News·Analyst)와 Claude로 미국 섹터 순환매를 분석. 3단계 시그널 교차 검증, FastAPI·APScheduler 자동 배치.
+- [Geo Pixel Board](https://geo-pixel-board.kopserf.workers.dev): 그 장소에 실제로 있어야만 그릴 수 있는 지도 위 실시간 협업 픽셀 캔버스. Cloudflare Durable Objects(셀당 1개) · WebSocket Hibernation · 서버권위 위치 게이트.
+- [좋소판별기](https://jotsopan.vercel.app): 국민연금 공공데이터 55만 사업장으로 중소기업 근무여건 위험도를 추정·시각화. Next.js 15, 무라이브러리 SVG 차트, 컬럼형 JSON·지연 인덱스로 적재량 약 96배 절감.
+
+## Engineering
+- MCP 서버 8종 자체 제작(Node.js 6 + Python paramiko 2), 로컬·개발·운영 DB 조회 채널 분리(운영 read-only).
+- Qdrant + Voyage Code 3 임베딩으로 JSP·Java 1,878개 파일 시맨틱 인덱싱.
+- 운영 35대 SSH 안전 배포 도구(병렬·백업·dry-run·카나리) 직접 제작.
+- deny 정책·pre-edit 훅으로 위험 명령을 가드 단에서 차단하는 거버넌스.
+
+## Links
+- [GitHub](https://github.com/macklinkim)
+- [Velog](https://velog.io/@mackhokim)
