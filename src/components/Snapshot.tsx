@@ -1,5 +1,6 @@
 import { Section } from './Section'
 import { Reveal } from './Reveal'
+import { ProfileFigure } from './ProfileFigure'
 import {
   positioning,
   competencies,
@@ -31,6 +32,12 @@ export function Snapshot() {
         <h2 className="font-display max-w-[24ch] text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
           {positioning}
         </h2>
+      </Reveal>
+
+      <Reveal delay={0.05}>
+        <div className="mt-9">
+          <ProfileFigure />
+        </div>
       </Reveal>
 
       <div className="mt-10 grid gap-8">
