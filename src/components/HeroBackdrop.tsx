@@ -11,10 +11,15 @@ const nodes = [
   { x: 1365, y: 330, r: 2.8 }, { x: 1205, y: 320, r: 2.0 }, { x: 980, y: 185, r: 2.2 },
   { x: 1120, y: 395, r: 1.8 }, { x: 1300, y: 440, r: 2.4 }, { x: 1030, y: 450, r: 2.0 },
   { x: 1235, y: 530, r: 1.8 }, { x: 1395, y: 205, r: 2.0 }, { x: 1150, y: 480, r: 1.8 },
+  // 하단으로 확장 — 우상단 클러스터 편중 해소(전체 별자리감)
+  { x: 1010, y: 600, r: 2.0 }, { x: 1300, y: 615, r: 2.2 }, { x: 1395, y: 520, r: 1.8 },
+  { x: 1140, y: 660, r: 1.6 }, { x: 1360, y: 690, r: 2.0 }, { x: 945, y: 360, r: 1.8 },
 ]
 const links: [number, number][] = [
   [0, 1], [0, 2], [0, 5], [1, 3], [1, 4], [2, 4], [2, 6], [3, 7], [4, 6],
   [6, 8], [7, 9], [8, 9], [9, 11], [3, 10], [0, 10], [5, 8],
+  // 하단 노드 연결
+  [8, 12], [12, 15], [9, 13], [13, 16], [7, 14], [14, 16], [11, 12], [13, 14], [5, 17], [17, 6],
 ]
 
 export function HeroBackdrop() {
@@ -44,7 +49,7 @@ export function HeroBackdrop() {
           </radialGradient>
         </defs>
         <rect width="1440" height="760" fill="url(#halo)" />
-        <g stroke="var(--color-hudson-blue)" strokeWidth="1" opacity="0.28">
+        <g stroke="var(--color-hudson-blue)" strokeWidth="1" opacity="0.34">
           {links.map(([a, b], i) => (
             <line key={i} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y} />
           ))}
@@ -64,7 +69,7 @@ export function HeroBackdrop() {
             cy={n.y}
             r={n.r}
             fill={i % 3 === 0 ? 'var(--color-hudson-blue)' : '#9aa3ad'}
-            animate={reduce ? undefined : { opacity: [0.4, 0.95, 0.4] }}
+            animate={reduce ? undefined : { opacity: [0.5, 1, 0.5] }}
             transition={reduce ? undefined : { duration: 4 + (i % 4), repeat: Infinity, ease: 'easeInOut', delay: (i % 6) * 0.4 }}
             style={{ opacity: reduce ? 0.75 : undefined }}
           />
