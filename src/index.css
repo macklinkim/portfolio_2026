@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Design tokens — sourced verbatim from _STYLE_REFERENCE.md
+   "General Intelligence Company" · Editorial / Frosted Glass
+   ============================================================ */
+@theme {
+  /* — Color: single blue accent, ink-on-cream editorial — */
+  --color-hudson-blue: #0081c0; /* the ONLY chroma accent */
+  --color-slate-cyan: #41a1cf;
+  --color-graphite-night: #282834;
+  --color-ink: #171717;
+  --color-carbon: #2c2c2c;
+  --color-iron: #444141;
+  --color-steel: #646464;
+  --color-fog: #b4b8b4;
+  --color-ash: #a5afaf;
+  --color-mist: #cfd3cf;
+  --color-sage: #dee2de;
+  --color-cream: #fefffc; /* page canvas */
+  --color-linen: #f9faf7;
+  --color-paper: #ffffff;
+  --color-obsidian: #1f1f29;
+
+  /* — Type families — */
+  --font-serif: 'Source Serif 4', Lora, 'PT Serif', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', 'Geist Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* — Type scale — */
+  --text-caption: 13px;
+  --text-body-sm: 15px;
+  --text-subheading: 18px;
+  --text-heading: 40px;
+  --text-heading-lg: 48px;
+  --text-display: 54px;
+
+  /* — Radius — */
+  --radius-nav: 50px;
+  --radius-cards: 12px;
+  --radius-buttons: 4px;
+  --radius-herocards: 24px;
+  --radius-elevatedcards: 16px;
+
+  /* — Layout — */
+  --spacing-page: 1200px;
+
+  /* — Shadows / elevation (depth via hairline + soft layers) — */
+  --shadow-floatnav: rgba(0, 0, 0, 0.15) 0px 2px 6px 0px;
+  --shadow-ring: rgb(222, 226, 222) 0px 0px 0px 1px;
+  --shadow-card: rgba(0, 0, 0, 0.08) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 4px 5px 0px;
+  --shadow-frosted: rgba(0, 0, 0, 0.06) 0px 2px 2px 0px, rgba(0, 0, 0, 0.04) 0px 0px 0px 5px;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display serif headings: 40–54px, LH 1.10, -0.02em, ligatures off */
+  .font-display {
+    font-family: var(--font-serif);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'liga' 0;
+    font-weight: 400;
+  }
+
+  /* Visible keyboard focus ring (a11y) */
+  :focus-visible {
+    outline: 2px solid var(--color-hudson-blue);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-hudson-blue) 22%, transparent);
+  }
+}
+
+/* ============================================================
+   Reusable primitives
+   ============================================================ */
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: var(--spacing-page);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  /* Headline inline blue link — the signature accent pattern */
+  .ink-link {
+    color: inherit;
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-hudson-blue), var(--color-hudson-blue));
+    background-repeat: no-repeat;
+    background-position: 0 88%;
+    background-size: 100% 1px;
+    transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+  }
+  .ink-link:hover {
+    color: var(--color-hudson-blue);
+    background-size: 100% 2px;
+  }
+}
