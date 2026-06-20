@@ -16,9 +16,9 @@ export function Contact() {
       <div className="container-page py-24 sm:py-28">
         <Reveal>
           <p className="eyebrow">Contact</p>
-          <h2 className="font-display mt-5 max-w-[18ch] text-[clamp(30px,5vw,52px)] leading-[1.08] text-ink">
+          <h2 className="font-display mt-5 max-w-[18ch] break-keep text-[clamp(30px,5vw,52px)] leading-[1.08] text-ink">
             함께 만들 이야기,{' '}
-            <a href={profile.github} target="_blank" rel="noreferrer" className="ink-link">
+            <a href={profile.github} target="_blank" rel="noreferrer" className="ink-link whitespace-nowrap">
               연결
             </a>
           </h2>

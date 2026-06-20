@@ -55,7 +55,7 @@ export function Hero() {
           >
             <a
               href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-[15px] font-semibold text-ink transition-transform duration-300 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-[var(--radius-buttons)] bg-graphite-night px-5 py-2.5 text-[15px] font-semibold text-paper transition-transform duration-300 hover:-translate-y-0.5"
             >
               Selected work 보기
               <ArrowRight size={17} weight="bold" className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -64,7 +64,7 @@ export function Hero() {
               href={profile.github}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-1.5 rounded-full border border-hairline bg-paper px-5 py-2.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:border-ink"
+              className="group inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-hairline bg-paper px-5 py-2.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:border-ink"
             >
               GitHub
               <ArrowUpRight size={15} weight="bold" className="text-cobalt transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
