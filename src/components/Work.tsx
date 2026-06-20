@@ -14,10 +14,10 @@ function ProjectEntry({ project, flip }: { project: Project; flip: boolean }) {
             <span className="font-display text-[20px] text-slate-cyan">{project.index}</span>
             <h3 className="font-display text-[clamp(24px,3.2vw,34px)] text-ink">{project.title}</h3>
           </div>
-          <p className="mt-3 max-w-[44ch] text-[17px] font-medium leading-snug text-carbon">
+          <p className="mt-3 max-w-[44ch] break-keep text-[17px] font-medium leading-snug text-carbon">
             {project.tagline}
           </p>
-          <p className="mt-4 max-w-[48ch] text-[15.5px] leading-[1.65] text-iron">{project.body}</p>
+          <p className="mt-4 max-w-[48ch] break-keep text-[15.5px] leading-[1.65] text-iron">{project.body}</p>
 
           <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-4">
             {project.highlights.map((h) => (
@@ -40,7 +40,7 @@ function ProjectEntry({ project, flip }: { project: Project; flip: boolean }) {
           </ul>
 
           {project.disclaimer && (
-            <p className="mt-5 max-w-[52ch] border-l-2 border-mist pl-3 text-[13px] leading-relaxed text-steel">
+            <p className="mt-5 max-w-[52ch] break-keep border-l-2 border-mist pl-3 text-[13px] leading-relaxed text-steel">
               {project.disclaimer}
             </p>
           )}

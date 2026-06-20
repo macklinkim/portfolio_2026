@@ -19,7 +19,7 @@ export function Engineering() {
         </h2>
       </Reveal>
       <Reveal delay={0.05}>
-        <p className="mt-5 max-w-[60ch] text-[16px] leading-[1.7] text-carbon">
+        <p className="mt-5 max-w-[60ch] break-keep text-[16px] leading-[1.7] text-carbon">
           {engineering.lead}
         </p>
       </Reveal>

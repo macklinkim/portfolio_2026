@@ -20,7 +20,7 @@ export function About() {
       </Reveal>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,58ch)_minmax(0,1fr)] lg:gap-16">
-        <div className="grid content-start gap-5 text-[16px] leading-[1.7] text-carbon">
+        <div className="grid content-start gap-5 break-keep text-[16px] leading-[1.7] text-carbon">
           <Reveal delay={0.05}>
             <p>
               숭실대 컴퓨터학부를 졸업하고 티맥스데이터에서 시작해, 시스템 소프트웨어·웹·DB를 두루

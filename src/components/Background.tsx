@@ -37,7 +37,7 @@ export function Background() {
                 <span className="text-[13px] tabular-nums text-steel">{job.period}</span>
               </div>
               <p className="mt-1 text-[14px] font-medium text-iron">{job.role}</p>
-              <p className="mt-2.5 max-w-[64ch] text-[14.5px] leading-[1.65] text-carbon">{job.detail}</p>
+              <p className="mt-2.5 max-w-[64ch] break-keep text-[14.5px] leading-[1.65] text-carbon">{job.detail}</p>
               <ul className="mt-3.5 flex flex-wrap gap-2">
                 {job.tags.map((t) => (
                   <li
