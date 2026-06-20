@@ -13,7 +13,7 @@ export function Contact() {
   ]
   return (
     <footer id="contact" className="scroll-mt-24 border-t border-hairline">
-      <div className="container-page py-24 sm:py-28">
+      <div className="container-page pt-14 pb-24 sm:pt-16 sm:pb-28">
         <Reveal>
           <p className="eyebrow">Contact</p>
           <h2 className="font-display mt-5 max-w-[18ch] break-keep text-[clamp(30px,5vw,52px)] leading-[1.08] text-ink">
