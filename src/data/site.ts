@@ -25,6 +25,8 @@ export const nav = [
   { id: 'contact', label: 'Contact' },
 ] as const
 
+export type ProjectImage = { src: string; alt: string; tall?: boolean }
+
 export type Project = {
   index: string
   title: string
@@ -34,6 +36,7 @@ export type Project = {
   highlights: { value: string; label: string }[]
   live: { label: string; href: string }
   repos: { label: string; href: string }[]
+  images: ProjectImage[]
   disclaimer?: string
 }
 
@@ -53,6 +56,10 @@ export const projects: Project[] = [
       { label: 'macklinkim/sector_analyzer', href: 'https://github.com/macklinkim/sector_analyzer' },
       { label: 'sector-analyzer-frontend', href: 'https://github.com/macklinkim/sector-analyzer-frontend' },
     ],
+    images: [
+      { src: '/projects/sector-analyzer-1.png', alt: 'AI 시장분석 대시보드 — 섹터 히트맵, 경제 캘린더, 종목별 스파크라인과 순위 바 차트', tall: true },
+      { src: '/projects/sector-analyzer-2.png', alt: 'AI 인사이트 화면 — 비즈니스 사이클 클락, RRG 상대강도 그래프, AI 섹터 로테이션 시그널', tall: true },
+    ],
   },
   {
     index: '02',
@@ -66,6 +73,9 @@ export const projects: Project[] = [
     ],
     live: { label: 'geo-pixel-board.kopserf.workers.dev', href: 'https://geo-pixel-board.kopserf.workers.dev' },
     repos: [{ label: 'macklinkim/geo_pixel_canvas', href: 'https://github.com/macklinkim/geo_pixel_canvas' }],
+    images: [
+      { src: '/projects/geo-pixel-board.png', alt: 'Geo Pixel Board 랜딩 — "Turn real places into pixel canvases" 헤드라인과 지도 위 실시간 픽셀 캔버스 미리보기' },
+    ],
   },
   {
     index: '03',
@@ -79,6 +89,9 @@ export const projects: Project[] = [
     ],
     live: { label: 'jotsopan.vercel.app', href: 'https://jotsopan.vercel.app' },
     repos: [{ label: 'macklinkim/joatsopan', href: 'https://github.com/macklinkim/joatsopan' }],
+    images: [
+      { src: '/projects/jotsopan.png', alt: '좋소판별기 — 사업장 근무여건 위험도 게이지, 핵심 지표, 추이 차트와 주변 회사 추천 목록', tall: true },
+    ],
     disclaimer:
       '공개 데이터에 기반한 추정치이며 특정 기업에 대한 비방이 아닙니다.',
   },
