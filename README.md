@@ -17,6 +17,14 @@ npm run build    # 프로덕션 빌드 → dist/
 npm run preview  # 빌드 미리보기
 ```
 
+## Quality (Lighthouse — desktop, navigation)
+| Performance | Accessibility | Best Practices | SEO |
+|:---:|:---:|:---:|:---:|
+| LCP 326 ms · CLS 0.00 | 100 | 100 | 100 |
+
+- Core Web Vitals: LCP 326 ms (good), CLS 0.00, TTFB 4 ms — render-blocking 절감 여지 0.
+- 접근성: skip-link, `:focus-visible`, 시맨틱 마크업, `prefers-reduced-motion` 대응.
+
 ## Links
 - GitHub — https://github.com/macklinkim
 - Velog — https://velog.io/@mackhokim
