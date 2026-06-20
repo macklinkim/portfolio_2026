@@ -34,7 +34,7 @@ export function Contact() {
                 className="group flex items-center justify-between rounded-[var(--radius-cards)] border border-hairline bg-paper px-5 py-4 transition-colors duration-200 hover:border-ink"
               >
                 <span className="flex items-center gap-3.5">
-                  <Icon size={22} weight="regular" className="text-cobalt" />
+                  <Icon size={22} weight="regular" className="text-hudson-blue" />
                   <span>
                     <span className="block text-[15px] font-medium text-ink">{label}</span>
                     <span className="block font-mono text-[12.5px] text-steel">{handle}</span>

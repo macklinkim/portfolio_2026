@@ -39,12 +39,12 @@ export function HeroBackdrop() {
         {/* 코발트 헤일로 */}
         <defs>
           <radialGradient id="halo" cx="82%" cy="16%" r="50%">
-            <stop offset="0%" stopColor="var(--color-cobalt)" stopOpacity="0.10" />
-            <stop offset="100%" stopColor="var(--color-cobalt)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-hudson-blue)" stopOpacity="0.10" />
+            <stop offset="100%" stopColor="var(--color-hudson-blue)" stopOpacity="0" />
           </radialGradient>
         </defs>
         <rect width="1440" height="760" fill="url(#halo)" />
-        <g stroke="var(--color-cobalt)" strokeWidth="1" opacity="0.28">
+        <g stroke="var(--color-hudson-blue)" strokeWidth="1" opacity="0.28">
           {links.map(([a, b], i) => (
             <line key={i} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y} />
           ))}
@@ -63,7 +63,7 @@ export function HeroBackdrop() {
             cx={n.x}
             cy={n.y}
             r={n.r}
-            fill={i % 3 === 0 ? 'var(--color-cobalt)' : '#9aa3ad'}
+            fill={i % 3 === 0 ? 'var(--color-hudson-blue)' : '#9aa3ad'}
             animate={reduce ? undefined : { opacity: [0.4, 0.95, 0.4] }}
             transition={reduce ? undefined : { duration: 4 + (i % 4), repeat: Infinity, ease: 'easeInOut', delay: (i % 6) * 0.4 }}
             style={{ opacity: reduce ? 0.75 : undefined }}

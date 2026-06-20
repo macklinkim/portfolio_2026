@@ -5,7 +5,7 @@ import { nav, profile } from '../data/site'
 
 /**
  * Floating Pill Nav — 라이트 페이퍼 알약(refero). 페이지 단일 색과 일체.
- * hairline 보더 · 모노 라벨 · 코발트 활성. 데스크탑 풀 알약 / 모바일 햄버거.
+ * hairline 보더 · 모노 라벨 · Hudson Blue 활성. 데스크탑 풀 알약 / 모바일 햄버거.
  */
 export function Nav() {
   const [active, setActive] = useState<string>('')
@@ -40,7 +40,7 @@ export function Nav() {
           href="#top"
           className="ml-1.5 mr-1 flex shrink-0 items-center gap-2 rounded-[var(--radius-nav)] px-2.5 py-1.5 font-mono text-[14px] font-semibold tracking-tight text-ink"
         >
-          <span aria-hidden className="size-2 rounded-full bg-cobalt" />
+          <span aria-hidden className="size-2 rounded-full bg-hudson-blue" />
           {profile.alias}
         </a>
         <ul className="flex items-center gap-0.5">
@@ -50,7 +50,7 @@ export function Nav() {
                 href={`#${item.id}`}
                 aria-current={active === item.id ? 'true' : undefined}
                 className={`block whitespace-nowrap rounded-[var(--radius-nav)] px-3 py-1.5 font-mono text-[12px] uppercase tracking-[0.08em] transition-colors duration-200 ${
-                  active === item.id ? 'bg-ice text-cobalt' : 'text-steel hover:text-ink'
+                  active === item.id ? 'bg-ice text-hudson-blue' : 'text-steel hover:text-ink'
                 }`}
               >
                 {item.label}
@@ -65,7 +65,7 @@ export function Nav() {
           className="group ml-1 flex shrink-0 items-center gap-1 rounded-[var(--radius-nav)] border border-hairline px-3 py-1.5 text-[14px] font-medium text-ink transition-colors duration-200 hover:border-ink"
         >
           GitHub
-          <ArrowUpRight size={14} weight="bold" className="text-cobalt transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight size={14} weight="bold" className="text-hudson-blue transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </nav>
 
@@ -76,7 +76,7 @@ export function Nav() {
         style={{ boxShadow: 'rgba(0,0,0,0.05) 0px 4px 14px 0px' }}
       >
         <a href="#top" className="flex items-center gap-2 font-mono text-[14px] font-semibold tracking-tight text-ink" onClick={() => setOpen(false)}>
-          <span aria-hidden className="size-2 rounded-full bg-cobalt" />
+          <span aria-hidden className="size-2 rounded-full bg-hudson-blue" />
           {profile.alias}
         </a>
         <button
@@ -108,7 +108,7 @@ export function Nav() {
                     onClick={() => setOpen(false)}
                     aria-current={active === item.id ? 'true' : undefined}
                     className={`block rounded-[var(--radius-buttons)] px-3 py-2.5 font-mono text-[13px] uppercase tracking-[0.08em] transition-colors ${
-                      active === item.id ? 'bg-ice text-cobalt' : 'text-steel hover:bg-linen hover:text-ink'
+                      active === item.id ? 'bg-ice text-hudson-blue' : 'text-steel hover:bg-linen hover:text-ink'
                     }`}
                   >
                     {item.label}
@@ -124,7 +124,7 @@ export function Nav() {
                   className="flex items-center justify-between rounded-[var(--radius-buttons)] px-3 py-2.5 text-[14px] font-medium text-ink hover:bg-linen"
                 >
                   GitHub
-                  <ArrowUpRight size={16} weight="bold" className="text-cobalt" />
+                  <ArrowUpRight size={16} weight="bold" className="text-hudson-blue" />
                 </a>
               </li>
             </ul>

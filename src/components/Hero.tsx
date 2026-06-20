@@ -67,7 +67,7 @@ export function Hero() {
               className="group inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-hairline bg-paper px-5 py-2.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:border-ink"
             >
               GitHub
-              <ArrowUpRight size={15} weight="bold" className="text-cobalt transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={15} weight="bold" className="text-hudson-blue transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <span className="ml-1 font-mono text-[12.5px] text-steel">경력 {profile.experience}</span>
           </motion.div>

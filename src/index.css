@@ -23,7 +23,6 @@
   --color-obsidian: #1f1f29;
 
   /* — refero "editorial sketchbook" overlay tokens — */
-  --color-cobalt: #0c76fe; /* wayfinding / links accent */
   --color-hairline: #dbdbdb; /* 1px elevation borders (no shadows) */
   --color-ink-soft: #898989; /* two-tone headline second phrase */
   --color-ice: #e6f1ff; /* tinted neutral */
@@ -131,7 +130,7 @@
     padding-inline: 24px;
   }
 
-  /* refero section eyebrow — 6px cobalt dot + uppercase mono label */
+  /* refero section eyebrow — 6px Hudson Blue dot + uppercase mono label */
   .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -148,7 +147,7 @@
     width: 6px;
     height: 6px;
     border-radius: 9999px;
-    background: var(--color-cobalt);
+    background: var(--color-hudson-blue);
     flex: none;
   }
 
