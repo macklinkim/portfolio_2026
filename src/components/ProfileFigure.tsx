@@ -31,16 +31,21 @@ const flows: { from: [number, number]; to: [number, number]; delay: number }[] =
 function FlowPulse({ from, to, delay }: { from: [number, number]; to: [number, number]; delay: number }) {
   const dx = to[0] - from[0]
   const dy = to[1] - from[1]
-  const t = { duration: 1.3, repeat: Infinity, repeatDelay: 1.1, delay, ease: 'linear' as const }
+  const dur = 1.2
+  const repeatDelay = 0.4
   return (
     <motion.g
       initial={{ x: 0, y: 0, opacity: 0 }}
       animate={{ x: [0, dx], y: [0, dy], opacity: [0, 1, 1, 0] }}
-      transition={t}
+      transition={{
+        default: { duration: dur, repeat: Infinity, repeatDelay, delay, ease: 'linear' },
+        // 이동의 대부분 구간에서 밝게 유지(짧게 페이드 인/아웃)
+        opacity: { duration: dur, times: [0, 0.1, 0.9, 1], repeat: Infinity, repeatDelay, delay, ease: 'linear' },
+      }}
     >
       {/* 소프트 글로우 + 밝은 코어 — from 위치에 고정, 그룹을 translate */}
-      <circle cx={from[0]} cy={from[1]} r={5} fill={HB} opacity={0.18} />
-      <circle cx={from[0]} cy={from[1]} r={2.6} fill={HB} />
+      <circle cx={from[0]} cy={from[1]} r={9} fill={HB} opacity={0.22} />
+      <circle cx={from[0]} cy={from[1]} r={3.6} fill={HB} />
     </motion.g>
   )
 }

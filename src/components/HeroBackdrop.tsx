@@ -43,9 +43,9 @@ export function HeroBackdrop() {
       aria-hidden
       className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
       style={{ opacity: reduce ? 0.7 : opacity }}
-      // 앰비언트 드리프트 — 별자리 전체가 아주 천천히 떠다님(라인·노드 함께 → 연결 유지)
-      animate={reduce ? undefined : { x: [0, 14, -10, 0], y: [0, -10, 8, 0] }}
-      transition={reduce ? undefined : { duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+      // 앰비언트 드리프트 — 별자리 전체가 천천히 떠다님(라인·노드 함께 → 연결 유지)
+      animate={reduce ? undefined : { x: [0, 24, -18, 0], y: [0, -16, 12, 0] }}
+      transition={reduce ? undefined : { duration: 16, repeat: Infinity, ease: 'easeInOut' }}
     >
       <motion.svg
         className="absolute right-0 top-0 h-full w-[68%] min-w-[680px]"
