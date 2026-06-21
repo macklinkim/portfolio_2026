@@ -9,7 +9,7 @@ import { engineering } from '../data/site'
  */
 export function Engineering() {
   return (
-    <Section id="engineering" label="Engineering at work">
+    <Section id="engineering" label="Engineering at work" tone="engineering">
       <Reveal>
         <h2 className="font-display whitespace-nowrap text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
           <span className="ink-link" style={{ backgroundPosition: '0 92%' }}>

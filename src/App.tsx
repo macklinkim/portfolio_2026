@@ -19,14 +19,12 @@ function App() {
       <Nav />
       <main>
         <Hero />
-        {/* 에디토리얼 본문: 48px+ 섹션 리듬, 1200px 중앙 정렬 */}
-        <div className="space-y-24 pt-24 pb-14 sm:space-y-28 sm:pt-28 sm:pb-16">
-          <Snapshot />
-          <About />
-          <Work />
-          <Engineering />
-          <Background />
-        </div>
+        {/* 에디토리얼 본문 — 각 섹션이 풀블리드 색 밴드(맞닿아 톤 전환으로 분리), 1200px 중앙 정렬 */}
+        <Snapshot />
+        <About />
+        <Work />
+        <Engineering />
+        <Background />
         <Contact />
       </main>
     </>

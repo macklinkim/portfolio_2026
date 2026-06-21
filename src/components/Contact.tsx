@@ -12,8 +12,8 @@ export function Contact() {
     { label: 'Velog', handle: 'velog.io/@mackhokim', href: profile.velog, Icon: PenNib },
   ]
   return (
-    <footer id="contact" className="scroll-mt-24 border-t border-hairline">
-      <div className="container-page pt-14 pb-24 sm:pt-16 sm:pb-28">
+    <footer id="contact" data-tone="contact" className="scroll-mt-24">
+      <div className="container-page pt-16 pb-24 sm:pt-20 sm:pb-28">
         <Reveal>
           <p className="eyebrow">Contact</p>
           <h2 className="font-display mt-5 break-keep text-[clamp(28px,5vw,52px)] leading-[1.08] text-ink">

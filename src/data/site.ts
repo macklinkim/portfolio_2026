@@ -215,7 +215,7 @@ export const educationList = [
 export const skillGroups: { label: string; items: string[] }[] = [
   { label: 'Backend', items: ['Java', 'Spring Boot', 'Spring Framework', 'MyBatis', 'Node.js', 'Nest.js', 'RESTful API'] },
   { label: 'Data · DB', items: ['PostgreSQL', 'Oracle', 'MSSQL', 'MySQL', 'MongoDB', '쿼리 튜닝'] },
-  { label: 'Cloud · DevOps', items: ['AWS (S3·Lambda·EC2·CloudFront·EB)', 'Linux 서버 운영', 'GitHub / GitLab CI/CD', '모니터링 툴 제작'] },
+  { label: 'Cloud · DevOps', items: ['AWS (S3·Lambda·EC2·LigghtSail·SES·CloudFront·EB)', 'Linux 서버 운영', 'GitHub / GitLab CI/CD', '모니터링 툴 제작'] },
   { label: 'Frontend · AI', items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Claude Code · MCP', 'Gemini CLI'] },
   { label: 'Systems', items: ['C · C++ (Kernel / OS)'] },
 ]

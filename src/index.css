@@ -27,6 +27,15 @@
   --color-ink-soft: #898989; /* two-tone headline second phrase */
   --color-ice: #e6f1ff; /* tinted neutral */
 
+  /* — Section surface tones — 거의 흰색, 섹션별로 따뜻/차가운 미묘한 틴트만 교차.
+     의식해서 보면 느껴질 정도의 차이(≈RGB 4~7). 구분선 없이 톤 전환으로만 분리. */
+  --surface-profile: #fbfbf9; /* neutral · 살짝 따뜻 */
+  --surface-about: #f5f7f5; /* 아주 옅은 green-gray (cool) */
+  --surface-work: #fafaf8; /* neutral */
+  --surface-engineering: #f3f6f6; /* 옅은 cool/cyan-gray (기술) */
+  --surface-background: #f7f6f3; /* 옅은 warm */
+  --surface-contact: #f4f6f7; /* 옅은 cool — 마무리 */
+
   /* — Type families — */
   --font-serif: 'Source Serif 4', Lora, 'PT Serif', ui-serif, Georgia, serif;
   --font-sans: 'Inter', 'Geist Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -96,6 +105,31 @@
     letter-spacing: -0.011em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  /* 섹션 색 밴드 — 톤 + 동일한 dot-grid 텍스처(전 페이지 일관). 명시적 구분선 없이 톤 전환으로만 분리 */
+  [data-tone] {
+    background-image: radial-gradient(rgba(15, 15, 15, 0.045) 0.6px, transparent 0.6px);
+    background-size: 22px 22px;
+    background-position: -1px -1px;
+  }
+  [data-tone='profile'] {
+    background-color: var(--surface-profile);
+  }
+  [data-tone='about'] {
+    background-color: var(--surface-about);
+  }
+  [data-tone='work'] {
+    background-color: var(--surface-work);
+  }
+  [data-tone='engineering'] {
+    background-color: var(--surface-engineering);
+  }
+  [data-tone='background'] {
+    background-color: var(--surface-background);
+  }
+  [data-tone='contact'] {
+    background-color: var(--surface-contact);
   }
 
   /* Display serif headings: 40–54px, LH 1.10, -0.02em, ligatures off */
