@@ -26,27 +26,22 @@ const flows: { from: [number, number]; to: [number, number]; delay: number }[] =
   { from: [337, 100], to: [486, 128], delay: 1.44 },
 ]
 
+/* 위치 이동은 transform(translate)으로 — SVG cx/cy 속성 애니메이션은 일부 프로덕션 번들에서
+   동작하지 않음(Vercel 확인). transform 기반은 어디서나 확실히 동작(Hero 드리프트와 동일 방식). */
 function FlowPulse({ from, to, delay }: { from: [number, number]; to: [number, number]; delay: number }) {
+  const dx = to[0] - from[0]
+  const dy = to[1] - from[1]
   const t = { duration: 1.3, repeat: Infinity, repeatDelay: 1.1, delay, ease: 'linear' as const }
   return (
-    <>
-      {/* 소프트 글로우 */}
-      <motion.circle
-        r={5}
-        fill={HB}
-        initial={{ cx: from[0], cy: from[1], opacity: 0 }}
-        animate={{ cx: [from[0], to[0]], cy: [from[1], to[1]], opacity: [0, 0.18, 0.18, 0] }}
-        transition={t}
-      />
-      {/* 밝은 코어 */}
-      <motion.circle
-        r={2.6}
-        fill={HB}
-        initial={{ cx: from[0], cy: from[1], opacity: 0 }}
-        animate={{ cx: [from[0], to[0]], cy: [from[1], to[1]], opacity: [0, 1, 1, 0] }}
-        transition={t}
-      />
-    </>
+    <motion.g
+      initial={{ x: 0, y: 0, opacity: 0 }}
+      animate={{ x: [0, dx], y: [0, dy], opacity: [0, 1, 1, 0] }}
+      transition={t}
+    >
+      {/* 소프트 글로우 + 밝은 코어 — from 위치에 고정, 그룹을 translate */}
+      <circle cx={from[0]} cy={from[1]} r={5} fill={HB} opacity={0.18} />
+      <circle cx={from[0]} cy={from[1]} r={2.6} fill={HB} />
+    </motion.g>
   )
 }
 
