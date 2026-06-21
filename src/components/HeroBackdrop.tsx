@@ -42,9 +42,11 @@ export function HeroBackdrop() {
     <motion.div
       aria-hidden
       className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
+      // 앰비언트 드리프트/트윙클은 장식이라 reduced-motion과 무관하게 항상 재생.
+      // (스크롤 패럴랙스 yFar/yNear만 reduced-motion 존중)
       // 하단(+우측 끝)으로 갈수록 페이드 → 별자리 선이 Hero 경계에서 뚝 잘리지 않고 사라짐
       style={{
-        opacity: reduce ? 0.7 : opacity,
+        opacity: reduce ? 0.85 : opacity,
         WebkitMaskImage:
           'linear-gradient(to bottom, #000 0%, #000 52%, transparent 88%), linear-gradient(to left, #000 0%, #000 88%, transparent 100%)',
         WebkitMaskComposite: 'source-in',
@@ -53,8 +55,8 @@ export function HeroBackdrop() {
         maskComposite: 'intersect',
       }}
       // 앰비언트 드리프트 — 별자리 전체가 천천히 떠다님(라인·노드 함께 → 연결 유지)
-      animate={reduce ? undefined : { x: [0, 24, -18, 0], y: [0, -16, 12, 0] }}
-      transition={reduce ? undefined : { duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+      animate={{ x: [0, 24, -18, 0], y: [0, -16, 12, 0] }}
+      transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
     >
       <motion.svg
         className="absolute right-0 top-0 h-full w-[68%] min-w-[680px]"
@@ -95,9 +97,8 @@ export function HeroBackdrop() {
             cy={n.y}
             r={n.r}
             fill={i % 3 === 0 ? 'var(--color-hudson-blue)' : '#9aa3ad'}
-            animate={reduce ? undefined : { opacity: [0.5, 1, 0.5] }}
-            transition={reduce ? undefined : { duration: 4 + (i % 4), repeat: Infinity, ease: 'easeInOut', delay: (i % 6) * 0.4 }}
-            style={{ opacity: reduce ? 0.75 : undefined }}
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 4 + (i % 4), repeat: Infinity, ease: 'easeInOut', delay: (i % 6) * 0.4 }}
           />
         ))}
       </motion.svg>

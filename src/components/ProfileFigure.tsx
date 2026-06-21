@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { motion } from 'motion/react'
 
 /**
  * Profile 시각 앵커 — "운영 규모의 시스템" 추상 아키텍처.
@@ -80,8 +80,6 @@ function ServerCluster() {
 }
 
 export function ProfileFigure() {
-  const reduce = useReducedMotion()
-
   return (
     <div className="overflow-hidden rounded-[var(--radius-elevatedcards)] border border-hairline bg-paper">
       <svg
@@ -115,12 +113,10 @@ export function ProfileFigure() {
         {/* 고객사 운영 서버 50여개 클러스터 */}
         <ServerCluster />
 
-        {/* 데이터 흐름 펄스 (reduced-motion 시 정적 점) */}
-        {reduce ? (
-          <circle cx={320} cy={100} r={3.5} fill={HB} />
-        ) : (
-          flows.map((f, i) => <FlowPulse key={i} from={f.from} to={f.to} delay={f.delay} />)
-        )}
+        {/* 데이터 흐름 펄스 — 은은한 장식 모션이라 reduced-motion과 무관하게 항상 재생 */}
+        {flows.map((f, i) => (
+          <FlowPulse key={i} from={f.from} to={f.to} delay={f.delay} />
+        ))}
       </svg>
 
       {/* 캡션 — 각 라벨을 위 도형(클라이언트 x70 · 허브 x320 · 클러스터중심 x570 / viewBox 720)
