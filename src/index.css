@@ -72,6 +72,8 @@
 @layer base {
   :root {
     color-scheme: light;
+    /* refero "graph paper" 도트 그리드 — 전 페이지 공통 텍스처(밴드 위에 재사용) */
+    --dot-grid: radial-gradient(rgba(15, 15, 15, 0.045) 0.6px, transparent 0.6px);
   }
 
   html {
@@ -107,29 +109,42 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* 섹션 색 밴드 — 톤 + 동일한 dot-grid 텍스처(전 페이지 일관). 명시적 구분선 없이 톤 전환으로만 분리 */
+  /* 섹션 색 밴드 — 각 섹션은 자기 톤을 유지하다가 하단 ~20%에서 "다음 섹션 톤"으로 서서히
+     전환된다. 경계에서 (이전 섹션 하단 = 다음 섹션 상단 = 같은 톤)이라 이음새 없이 그라데이션으로
+     흐른다. dot-grid 텍스처는 위에 동일하게 깔아 전 페이지 일관. 명시적 구분선 없음. */
   [data-tone] {
-    background-image: radial-gradient(rgba(15, 15, 15, 0.045) 0.6px, transparent 0.6px);
-    background-size: 22px 22px;
-    background-position: -1px -1px;
+    background-repeat: repeat, no-repeat;
+    background-size: 22px 22px, 100% 100%;
+    background-position: -1px -1px, 0 0;
   }
   [data-tone='profile'] {
     background-color: var(--surface-profile);
+    background-image: var(--dot-grid),
+      linear-gradient(to bottom, var(--surface-profile) 0%, var(--surface-profile) 80%, var(--surface-about) 100%);
   }
   [data-tone='about'] {
     background-color: var(--surface-about);
+    background-image: var(--dot-grid),
+      linear-gradient(to bottom, var(--surface-about) 0%, var(--surface-about) 80%, var(--surface-work) 100%);
   }
   [data-tone='work'] {
     background-color: var(--surface-work);
+    background-image: var(--dot-grid),
+      linear-gradient(to bottom, var(--surface-work) 0%, var(--surface-work) 80%, var(--surface-engineering) 100%);
   }
   [data-tone='engineering'] {
     background-color: var(--surface-engineering);
+    background-image: var(--dot-grid),
+      linear-gradient(to bottom, var(--surface-engineering) 0%, var(--surface-engineering) 80%, var(--surface-background) 100%);
   }
   [data-tone='background'] {
     background-color: var(--surface-background);
+    background-image: var(--dot-grid),
+      linear-gradient(to bottom, var(--surface-background) 0%, var(--surface-background) 80%, var(--surface-contact) 100%);
   }
   [data-tone='contact'] {
     background-color: var(--surface-contact);
+    background-image: var(--dot-grid), linear-gradient(to bottom, var(--surface-contact), var(--surface-contact));
   }
 
   /* Display serif headings: 40–54px, LH 1.10, -0.02em, ligatures off */
