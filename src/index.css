@@ -166,3 +166,14 @@
     background-size: 100% 2px;
   }
 }
+
+/* 프로젝트 스크린샷 — 호버 시 위→아래 자동 스크롤(스크린샷 전체를 훑는 애니메이션).
+   reduced-motion 시 전역 룰이 animation을 무력화 → 정적 top 정렬. */
+@keyframes frameScroll {
+  from {
+    object-position: 50% 0%;
+  }
+  to {
+    object-position: 50% 100%;
+  }
+}
