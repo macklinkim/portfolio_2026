@@ -41,7 +41,7 @@ export function HeroBackdrop() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
       style={{ opacity: reduce ? 0.7 : opacity }}
     >
       <motion.svg
