@@ -76,7 +76,7 @@ export const projects: Project[] = [
     live: { label: 'geo-pixel-board.kopserf.workers.dev', href: 'https://geo-pixel-board.kopserf.workers.dev' },
     repos: [{ label: 'macklinkim/geo_pixel_canvas', href: 'https://github.com/macklinkim/geo_pixel_canvas' }],
     images: [
-      { src: '/projects/geo-pixel-board.png', alt: 'Geo Pixel Board 랜딩 — "Turn real places into pixel canvases" 헤드라인과 지도 위 실시간 픽셀 캔버스 미리보기' },
+      { src: '/projects/geo-pixel-board.png', alt: 'Geo Pixel Board — "Turn real places into pixel canvases" 랜딩과, 아래로 스크롤하면 위성 지도 위 실시간 픽셀 캔버스(국기 픽셀아트) 화면', tall: true },
     ],
   },
   {
