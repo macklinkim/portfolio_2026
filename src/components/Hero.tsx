@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[92svh] items-center overflow-hidden">
       <HeroBackdrop />
-      <div className="container-page relative grid items-center gap-x-12 gap-y-12 pb-16 pt-32 lg:grid-cols-[minmax(0,560px)_clamp(290px,30vw,380px)] lg:justify-start lg:pt-28">
+      <div className="container-page relative grid items-center gap-x-10 gap-y-12 pb-16 pt-32 lg:grid-cols-[minmax(0,430px)_clamp(290px,30vw,380px)] lg:justify-start lg:pt-28">
         <div className="relative z-10 max-w-[46rem]">
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 14 }}
