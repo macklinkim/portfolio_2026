@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[92svh] items-center overflow-hidden">
       <HeroBackdrop />
-      <div className="container-page relative grid items-center gap-x-10 gap-y-12 pb-16 pt-32 lg:grid-cols-[minmax(0,430px)_clamp(290px,30vw,380px)] lg:justify-start lg:pt-28">
+      <div className="container-page relative grid items-center gap-x-10 gap-y-12 pb-16 pt-32 lg:grid-cols-[minmax(0,1fr)_clamp(300px,30vw,400px)] lg:pt-28">
         <div className="relative z-10 max-w-[46rem]">
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 14 }}
@@ -73,12 +73,15 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* 대표 사진 — 프로젝트 화면과 동일한 BrowserFrame 카드(테두리·라운드·그림자 통일) */}
+        {/* 대표 사진 — 프로젝트 화면과 동일한 BrowserFrame 카드. 위치/크기 조절 노브:
+            · 좌우: 아래 className의 lg:mr-[0px] 값 ↑ = 왼쪽 / ↓ = 오른쪽 이동
+            · 크기(데스크탑): 위 그리드의 clamp(300px,30vw,400px) 중 400px(최대폭) 조절
+            · 크기(모바일): 아래 max-w-[340px] 조절 */}
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease, delay: 0.34 }}
-          className="relative z-0 mx-auto w-full max-w-[340px] lg:mx-0 lg:max-w-none lg:justify-self-start"
+          className="relative z-99 mx-auto w-full max-w-[340px] lg:mx-0 lg:mr-[0px] lg:max-w-none lg:justify-self-end"
         >
           <BrowserFrame
             eager
