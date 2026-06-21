@@ -11,8 +11,8 @@ import { HeroBackdrop } from './HeroBackdrop'
 export function Hero() {
   const reduce = useReducedMotion()
   const ease = [0.16, 1, 0.3, 1] as const
-  const photoMask =
-    'linear-gradient(to top, #000 58%, transparent 100%), linear-gradient(to left, #000 66%, transparent 100%)'
+  // 라디얼 비네트 — 사각형 4면 모두 부드럽게 캔버스로 페이드(각진 모서리 없음). 인물 중심 유지.
+  const photoMask = 'radial-gradient(78% 82% at 53% 45%, #000 58%, transparent 90%)'
   return (
     <section id="top" className="relative flex min-h-[92svh] items-center overflow-hidden">
       <HeroBackdrop />
@@ -24,13 +24,8 @@ export function Hero() {
         initial={reduce ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease, delay: 0.42 }}
-        className="pointer-events-none absolute bottom-0 right-[max(0.75rem,calc((100%-1200px)/2))] w-[clamp(150px,30vw,360px)] select-none"
-        style={{
-          WebkitMaskImage: photoMask,
-          WebkitMaskComposite: 'source-in',
-          maskImage: photoMask,
-          maskComposite: 'intersect',
-        }}
+        className="pointer-events-none absolute bottom-0 right-[clamp(0.5rem,8vw,8rem)] w-[clamp(230px,36vw,460px)] select-none"
+        style={{ WebkitMaskImage: photoMask, maskImage: photoMask }}
       />
       <div className="container-page relative pb-16 pt-32 lg:pt-28">
         <div className="max-w-[46rem]">
