@@ -34,9 +34,11 @@ export type Project = {
   body: string
   stack: string[]
   highlights: { value: string; label: string }[]
-  live: { label: string; href: string }
+  live?: { label: string; href: string }
   repos: { label: string; href: string }[]
   images: ProjectImage[]
+  /** 실제 스크린샷 대신 재현형 로그 콘솔 프리뷰를 쓰는 프로젝트(log_analyzer). */
+  console?: boolean
   disclaimer?: string
 }
 
@@ -94,6 +96,20 @@ export const projects: Project[] = [
     ],
     disclaimer:
       '공개 데이터에 기반한 추정치이며 특정 기업에 대한 비방이 아닙니다.',
+  },
+  {
+    index: '04',
+    title: 'AI 로그 관제 시스템',
+    tagline: 'Fluent Bit으로 모은 운영 서버 로그를 AI가 분석하고 텔레그램으로 즉시 대응한다',
+    body: '여러 운영 서버(CentOS·Rocky)의 에러 로그를 Fluent Bit으로 모아 Gemini가 심각도(P1–P3)·근본 원인·조치를 분석합니다. 텔레그램 인라인 버튼으로 IP 차단·알림 음소거를 바로 처리하고, 서버를 가로질러 집계해 단일 서버에선 안 보이는 분산 공격을 탐지합니다.',
+    stack: ['Fluent Bit', 'Python · Flask', 'Gemini', 'Telegram Bot', 'Supabase', 'Next.js 14'],
+    highlights: [
+      { value: '3단계', label: '필터링 게이트 · AI 토큰 절감' },
+      { value: '분산 공격', label: '서버 횡단 집계로 탐지' },
+    ],
+    repos: [{ label: 'macklinkim/log_analyzer', href: 'https://github.com/macklinkim/log_analyzer' }],
+    images: [],
+    console: true,
   },
 ]
 

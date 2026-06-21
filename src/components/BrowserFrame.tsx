@@ -1,21 +1,27 @@
+import type { ReactNode } from 'react'
 import type { ProjectImage } from '../data/site'
 
 /**
- * BrowserFrame — 모든 프로젝트 스크린샷을 동일한 브라우저 크롬 카드로 감싸 색감 일체성 확보.
- * (라이트/다크 내부 테마가 섞여 있어도 프레임이 일정해 페이지가 하나로 읽힘.)
- * 토큰: Paper 표면 · Sage 보더 · elevatedcards radius · 레이어드 그림자.
- * 호버 시 모든 샷이 위→아래로 자동 스크롤(frameScroll keyframe, infinite alternate) —
- * 스크린샷 전체를 훑어 보여줌. CLS 방지: aspect-ratio 고정. reduced-motion 시 전역 CSS가 애니 비활성.
+ * BrowserFrame — 프로젝트 스크린샷을 진짜 "창"처럼 보여준다.
+ * 위아래로 긴 원본 스샷을 가로폭에 맞춰 축소(w-full·자연 높이)하고, 고정 높이 뷰포트 안에서
+ * 사용자가 마우스 휠/드래그/키보드로 위→아래 스크롤하며 본다(실제 윈도우 스크롤바).
+ * 토큰: Paper 표면 · Sage 보더 · elevatedcards radius. CLS 방지: 뷰포트 aspect 고정.
+ * 접근성: 스크롤 영역 tabIndex=0 + aria-label, 키보드 화살표 스크롤 가능.
  */
 export function BrowserFrame({
   image,
+  children,
   className = '',
   eager = false,
+  label,
 }: {
-  image: ProjectImage
+  image?: ProjectImage
+  children?: ReactNode
   className?: string
   eager?: boolean
+  label?: string
 }) {
+  const aspect = image?.tall ? 'aspect-[16/11]' : 'aspect-[16/10]'
   return (
     <div
       className={`group/frame overflow-hidden rounded-[var(--radius-elevatedcards)] border border-hairline bg-paper transition-[transform,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-ink/30 ${className}`}
@@ -27,16 +33,28 @@ export function BrowserFrame({
           <span className="size-2.5 rounded-full bg-mist" />
           <span className="size-2.5 rounded-full bg-mist" />
         </span>
+        {label && (
+          <span className="ml-1 truncate font-mono text-[11px] text-steel">{label}</span>
+        )}
       </div>
-      {/* 뷰포트 — 호버 시 위→아래 자동 스크롤(전체 샷 훑기). */}
-      <div className={`relative w-full overflow-hidden ${image.tall ? 'aspect-[16/11]' : 'aspect-[16/10]'}`}>
-        <img
-          src={image.src}
-          alt={image.alt}
-          loading={eager ? 'eager' : 'lazy'}
-          decoding="async"
-          className="absolute inset-0 size-full object-cover [object-position:50%_0%] [animation-play-state:paused] group-hover/frame:[animation:frameScroll_4s_linear_infinite_alternate]"
-        />
+      {/* 스크롤 뷰포트 — 휠/드래그/키보드로 위→아래 스크롤 */}
+      <div
+        className={`shot-scroll relative w-full overflow-y-auto overflow-x-hidden bg-paper ${aspect}`}
+        tabIndex={0}
+        role="group"
+        aria-label={image ? `${image.alt} (위아래로 스크롤해 보기)` : '프로젝트 미리보기 (위아래로 스크롤)'}
+      >
+        {image ? (
+          <img
+            src={image.src}
+            alt={image.alt}
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+            className="block w-full"
+          />
+        ) : (
+          children
+        )}
       </div>
     </div>
   )

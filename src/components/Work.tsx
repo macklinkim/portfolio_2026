@@ -2,6 +2,7 @@ import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react'
 import { Section } from './Section'
 import { Reveal } from './Reveal'
 import { BrowserFrame } from './BrowserFrame'
+import { LogConsole } from './LogConsole'
 import { projects, type Project } from '../data/site'
 
 function ProjectEntry({ project, flip }: { project: Project; flip: boolean }) {
@@ -46,16 +47,18 @@ function ProjectEntry({ project, flip }: { project: Project; flip: boolean }) {
           )}
 
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <a
-              href={project.live.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[15px] font-medium text-ink"
-            >
-              <span className="ink-link">Live</span>
-              <span className="min-w-0 break-all text-[13px] text-steel">{project.live.label}</span>
-              <ArrowUpRight size={15} weight="bold" className="shrink-0 text-slate-cyan transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            {project.live && (
+              <a
+                href={project.live.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[15px] font-medium text-ink"
+              >
+                <span className="ink-link">Live</span>
+                <span className="min-w-0 break-all text-[13px] text-steel">{project.live.label}</span>
+                <ArrowUpRight size={15} weight="bold" className="shrink-0 text-slate-cyan transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            )}
             {project.repos.map((r) => (
               <a
                 key={r.href}
@@ -71,13 +74,21 @@ function ProjectEntry({ project, flip }: { project: Project; flip: boolean }) {
           </div>
         </div>
 
-        {/* 이미지 컬럼 — 통일된 브라우저 프레임 (2장이면 살짝 오프셋해 스택) */}
+        {/* 이미지 컬럼 — 통일된 브라우저 "창"(휠/드래그로 스크롤). log_analyzer는 재현형 콘솔 */}
         <div className={`grid gap-5 lg:sticky lg:top-28 ${flip ? 'lg:order-1' : 'lg:order-2'}`}>
-          <BrowserFrame image={project.images[0]} />
-          {project.images[1] && (
-            <div className="ml-auto w-[90%] sm:w-[86%]">
-              <BrowserFrame image={project.images[1]} />
-            </div>
+          {project.console ? (
+            <BrowserFrame label="log-analyzer · 관제 콘솔">
+              <LogConsole />
+            </BrowserFrame>
+          ) : (
+            <>
+              <BrowserFrame image={project.images[0]} />
+              {project.images[1] && (
+                <div className="ml-auto w-[90%] sm:w-[86%]">
+                  <BrowserFrame image={project.images[1]} />
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
