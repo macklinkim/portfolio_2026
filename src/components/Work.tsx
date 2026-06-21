@@ -101,7 +101,7 @@ export function Work() {
     <Section id="work" label="Selected Work">
       <Reveal>
         <h2 className="font-display whitespace-nowrap text-[clamp(26px,4vw,40px)] leading-[1.12] text-ink">
-          직접 만든 세 프로젝트
+          직접 만든 프로젝트
         </h2>
       </Reveal>
       <div className="mt-12 grid gap-14">

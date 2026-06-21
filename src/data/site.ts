@@ -111,6 +111,23 @@ export const projects: Project[] = [
     images: [],
     console: true,
   },
+  {
+    index: '05',
+    title: 'Rust MEV 엔진',
+    tagline: '이더리움 멤풀을 읽어 교차거래소 차익을 탐지·시뮬레이션하는 LMAX Disruptor 엔진',
+    body: '멤풀·신규 블록을 수집해 AMM 풀 상태를 복원하고, Uniswap V2/V3 교차 차익을 Q64 고정소수 연산으로 탐지합니다. 리스크 예산으로 사이징하고 revm으로 로컬 시뮬레이션한 뒤 서명 가능한 번들을 구성 — 6단계 파이프라인을 바운디드 큐로 잇고, append-only 저널로 바이트 단위 결정적 재생을 보장합니다.',
+    stack: ['Rust', 'tokio', 'alloy', 'revm', 'RocksDB', 'Prometheus'],
+    highlights: [
+      { value: '6-stage', label: 'Disruptor 파이프라인 · 결정적 재생' },
+      { value: 'fail-closed', label: '다중 게이트 전엔 미서명·미제출' },
+    ],
+    repos: [{ label: 'macklinkim/rust_lmax_mev', href: 'https://github.com/macklinkim/rust_lmax_mev' }],
+    images: [
+      { src: '/projects/rust_lmax_mev.jpg', alt: '암호화폐 코인과 트레이딩 차트 컨셉 이미지 — Rust MEV 탐지·실행 엔진', tall: true },
+    ],
+    disclaimer:
+      '연구·교육용 인프라입니다. 기본 빌드는 거래·번들 제출·키 보유를 하지 않으며(fail-closed), 라이브 실행은 다중 게이트 잠금 해제가 필요합니다.',
+  },
 ]
 
 export const engineering = {

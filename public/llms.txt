@@ -16,6 +16,7 @@
 - [Geo Pixel Board](https://geo-pixel-board.kopserf.workers.dev): 그 장소에 실제로 있어야만 그릴 수 있는 지도 위 실시간 협업 픽셀 캔버스. Cloudflare Durable Objects(셀당 1개) · WebSocket Hibernation · 서버권위 위치 게이트.
 - [좋소판별기](https://jotsopan.vercel.app): 국민연금 공공데이터 55만 사업장으로 중소기업 근무여건 위험도를 추정·시각화. Next.js 15, 무라이브러리 SVG 차트, 컬럼형 JSON·지연 인덱스로 적재량 약 96배 절감.
 - [AI 로그 관제 시스템](https://github.com/macklinkim/log_analyzer): 여러 운영 서버(CentOS·Rocky)의 에러 로그를 Fluent Bit으로 모아 Gemini가 심각도(P1–P3)·근본 원인·조치를 분석. 텔레그램 인라인 버튼으로 IP 차단·음소거 즉시 대응, 서버 횡단 집계로 분산 공격 탐지. 3단계 필터링 게이트로 AI 토큰 절감. Fluent Bit · Python·Flask · Gemini · Supabase · Next.js 14.
+- [Rust MEV 엔진](https://github.com/macklinkim/rust_lmax_mev): 이더리움 멤풀·블록을 읽어 Uniswap V2/V3 교차거래소 차익을 탐지하고 revm으로 로컬 시뮬레이션 후 서명 가능한 번들을 구성하는 LMAX Disruptor 구조 엔진. 20개 Rust 크레이트, 6단계 파이프라인, append-only 저널 결정적 재생. 기본은 fail-closed(키·라이브 제출 없음). Rust · tokio · alloy · revm · RocksDB.
 
 ## Engineering
 - MCP 서버 8종 자체 제작(Node.js 6 + Python paramiko 2), 로컬·개발·운영 DB 조회 채널 분리(운영 read-only).
