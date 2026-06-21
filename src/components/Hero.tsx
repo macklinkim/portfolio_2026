@@ -4,16 +4,34 @@ import { profile } from '../data/site'
 import { HeroBackdrop } from './HeroBackdrop'
 
 /**
- * Hero — 라이트 에디토리얼(refero "graph paper"). 페이지 전체와 동일한 한 가지 캔버스 색.
- * 모노 eyebrow + 세리프 투톤 헤드라인 + 코발트 인라인 링크 + 라임 프라이머리 CTA(1개).
- * 다크 밴드/끊김 없음 — 본문과 매끄럽게 연결.
+ * Hero — 라이트 에디토리얼. 페이지 전체와 동일한 한 가지 캔버스 색, 단일 Hudson Blue 악센트.
+ * 좌측: 모노 eyebrow + 세리프 투톤 헤드라인 + 다크 CTA. 우측: 확장된 데이터 별자리.
+ * 우하단: 대표 사진이 별자리의 수렴점(앵커) — 네트워크의 중심에 사람. 가장자리는 캔버스로 페이드.
  */
 export function Hero() {
   const reduce = useReducedMotion()
   const ease = [0.16, 1, 0.3, 1] as const
+  const photoMask =
+    'linear-gradient(to top, #000 58%, transparent 100%), linear-gradient(to left, #000 66%, transparent 100%)'
   return (
     <section id="top" className="relative flex min-h-[92svh] items-center overflow-hidden">
       <HeroBackdrop />
+
+      {/* 대표 사진 — 우하단 앵커. 흰 배경이 캔버스와 가까워 가장자리 마스크로 자연스럽게 녹임 */}
+      <motion.img
+        src="/profile.webp"
+        alt={`${profile.name}(${profile.alias}) 프로필 사진`}
+        initial={reduce ? false : { opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease, delay: 0.42 }}
+        className="pointer-events-none absolute bottom-0 right-[max(0.75rem,calc((100%-1200px)/2))] w-[clamp(150px,30vw,360px)] select-none"
+        style={{
+          WebkitMaskImage: photoMask,
+          WebkitMaskComposite: 'source-in',
+          maskImage: photoMask,
+          maskComposite: 'intersect',
+        }}
+      />
       <div className="container-page relative pb-16 pt-32 lg:pt-28">
         <div className="max-w-[46rem]">
           <motion.p

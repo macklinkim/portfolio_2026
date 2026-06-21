@@ -6,20 +6,29 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
  * 스크롤 패럴랙스(깊이별 드리프트) + 노드 미세 트윙클. reduced-motion 시 정적.
  */
 
+/* 확장된 데이터 별자리 — 우측 전반을 덮고 우하단(대표 사진)으로 수렴해 "네트워크의 중심에 사람".
+   인덱스 15(1200,560)가 사진 상단의 허브 노드. */
 const nodes = [
-  { x: 1180, y: 150, r: 3.2 }, { x: 1300, y: 230, r: 2.2 }, { x: 1075, y: 250, r: 2.4 },
-  { x: 1365, y: 330, r: 2.8 }, { x: 1205, y: 320, r: 2.0 }, { x: 980, y: 185, r: 2.2 },
-  { x: 1120, y: 395, r: 1.8 }, { x: 1300, y: 440, r: 2.4 }, { x: 1030, y: 450, r: 2.0 },
-  { x: 1235, y: 530, r: 1.8 }, { x: 1395, y: 205, r: 2.0 }, { x: 1150, y: 480, r: 1.8 },
-  // 하단으로 확장 — 우상단 클러스터 편중 해소(전체 별자리감)
-  { x: 1010, y: 600, r: 2.0 }, { x: 1300, y: 615, r: 2.2 }, { x: 1395, y: 520, r: 1.8 },
-  { x: 1140, y: 660, r: 1.6 }, { x: 1360, y: 690, r: 2.0 }, { x: 945, y: 360, r: 1.8 },
+  // 상단 우측 클러스터
+  { x: 980, y: 175, r: 2.2 }, { x: 1180, y: 150, r: 3.2 }, { x: 1370, y: 200, r: 2.0 },
+  { x: 1075, y: 250, r: 2.4 }, { x: 1290, y: 250, r: 2.4 }, { x: 1432, y: 320, r: 1.8 },
+  // 중단
+  { x: 868, y: 300, r: 2.0 }, { x: 1190, y: 330, r: 2.2 }, { x: 1362, y: 360, r: 2.6 },
+  { x: 1012, y: 388, r: 2.0 }, { x: 928, y: 470, r: 1.8 }, { x: 1132, y: 452, r: 2.2 },
+  { x: 1284, y: 470, r: 2.4 }, { x: 1424, y: 472, r: 1.8 },
+  // 하단 — 사진 쪽으로 수렴
+  { x: 1020, y: 560, r: 2.0 }, { x: 1200, y: 560, r: 3.2 }, { x: 1352, y: 582, r: 2.0 },
+  { x: 880, y: 602, r: 1.8 }, { x: 1082, y: 672, r: 2.0 }, { x: 1272, y: 682, r: 2.2 },
+  { x: 1402, y: 660, r: 1.8 }, { x: 958, y: 692, r: 1.6 },
 ]
 const links: [number, number][] = [
-  [0, 1], [0, 2], [0, 5], [1, 3], [1, 4], [2, 4], [2, 6], [3, 7], [4, 6],
-  [6, 8], [7, 9], [8, 9], [9, 11], [3, 10], [0, 10], [5, 8],
-  // 하단 노드 연결
-  [8, 12], [12, 15], [9, 13], [13, 16], [7, 14], [14, 16], [11, 12], [13, 14], [5, 17], [17, 6],
+  // 상단
+  [1, 0], [1, 3], [1, 4], [1, 2], [2, 4], [2, 5], [0, 6], [0, 3], [3, 7], [4, 7], [4, 8], [8, 5],
+  // 중단
+  [6, 9], [7, 9], [9, 10], [7, 11], [11, 12], [8, 12], [12, 13], [11, 9], [10, 14],
+  // 하단 수렴(허브 15)
+  [14, 15], [11, 15], [12, 15], [15, 16], [16, 13], [14, 17], [6, 17], [15, 18], [18, 17],
+  [15, 19], [16, 19], [19, 20], [18, 21], [21, 17], [19, 12],
 ]
 
 export function HeroBackdrop() {
@@ -41,14 +50,19 @@ export function HeroBackdrop() {
         preserveAspectRatio="xMidYMid slice"
         style={{ y: reduce ? 0 : yFar }}
       >
-        {/* 코발트 헤일로 */}
+        {/* Hudson Blue 헤일로 — 상단 우측 + 하단 우측(사진 앵커) */}
         <defs>
           <radialGradient id="halo" cx="82%" cy="16%" r="50%">
             <stop offset="0%" stopColor="var(--color-hudson-blue)" stopOpacity="0.10" />
             <stop offset="100%" stopColor="var(--color-hudson-blue)" stopOpacity="0" />
           </radialGradient>
+          <radialGradient id="halo2" cx="84%" cy="88%" r="44%">
+            <stop offset="0%" stopColor="var(--color-hudson-blue)" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="var(--color-hudson-blue)" stopOpacity="0" />
+          </radialGradient>
         </defs>
         <rect width="1440" height="760" fill="url(#halo)" />
+        <rect width="1440" height="760" fill="url(#halo2)" />
         <g stroke="var(--color-hudson-blue)" strokeWidth="1" opacity="0.34">
           {links.map(([a, b], i) => (
             <line key={i} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y} />
