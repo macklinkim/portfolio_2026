@@ -25,7 +25,7 @@ export const nav = [
   { id: 'contact', label: 'Contact' },
 ] as const
 
-export type ProjectImage = { src: string; alt: string; tall?: boolean }
+export type ProjectImage = { src: string; alt: string; tall?: boolean; fit?: boolean }
 
 export type Project = {
   index: string
@@ -59,8 +59,8 @@ export const projects: Project[] = [
       { label: 'sector-analyzer-frontend', href: 'https://github.com/macklinkim/sector-analyzer-frontend' },
     ],
     images: [
-      { src: '/projects/sector-analyzer-1.png', alt: 'AI 시장분석 대시보드 — 섹터 히트맵, 경제 캘린더, 종목별 스파크라인과 순위 바 차트', tall: true },
-      { src: '/projects/sector-analyzer-2.png', alt: 'AI 인사이트 화면 — 비즈니스 사이클 클락, RRG 상대강도 그래프, AI 섹터 로테이션 시그널', tall: true },
+      { src: '/projects/sector-analyzer-1.webp', alt: 'AI 시장분석 대시보드 — 섹터 히트맵, 경제 캘린더, 종목별 스파크라인과 순위 바 차트', tall: true },
+      { src: '/projects/sector-analyzer-2.webp', alt: 'AI 인사이트 화면 — 비즈니스 사이클 클락, RRG 상대강도 그래프, AI 섹터 로테이션 시그널', tall: true },
     ],
   },
   {
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     live: { label: 'geo-pixel-board.kopserf.workers.dev', href: 'https://geo-pixel-board.kopserf.workers.dev' },
     repos: [{ label: 'macklinkim/geo_pixel_canvas', href: 'https://github.com/macklinkim/geo_pixel_canvas' }],
     images: [
-      { src: '/projects/geo-pixel-board.png', alt: 'Geo Pixel Board — 아래로 스크롤하면 랜딩("Turn real places into pixel canvases") → 픽셀 캔버스 에디터(국기 픽셀아트) → 위성 지도 전경 순으로 이어지는 화면', tall: true },
+      { src: '/projects/geo-pixel-board.webp', alt: 'Geo Pixel Board — 아래로 스크롤하면 랜딩("Turn real places into pixel canvases") → 픽셀 캔버스 에디터(국기 픽셀아트) → 위성 지도 전경 순으로 이어지는 화면', tall: true },
     ],
   },
   {
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     live: { label: 'jotsopan.vercel.app', href: 'https://jotsopan.vercel.app' },
     repos: [{ label: 'macklinkim/joatsopan', href: 'https://github.com/macklinkim/joatsopan' }],
     images: [
-      { src: '/projects/jotsopan.png', alt: '좋소판별기 — 사업장 근무여건 위험도 게이지, 핵심 지표, 추이 차트와 주변 회사 추천 목록', tall: true },
+      { src: '/projects/jotsopan.webp', alt: '좋소판별기 — 사업장 근무여건 위험도 게이지, 핵심 지표, 추이 차트와 주변 회사 추천 목록', tall: true },
     ],
     disclaimer:
       '공개 데이터에 기반한 추정치이며 특정 기업에 대한 비방이 아닙니다.',
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     ],
     repos: [{ label: 'macklinkim/rust_lmax_mev', href: 'https://github.com/macklinkim/rust_lmax_mev' }],
     images: [
-      { src: '/projects/rust_lmax_mev.jpg', alt: '암호화폐 코인과 트레이딩 차트 컨셉 이미지 — Rust MEV 탐지·실행 엔진', tall: true },
+      { src: '/projects/rust_lmax_mev.jpg', alt: '암호화폐 코인과 트레이딩 차트 컨셉 이미지 — Rust MEV 탐지·실행 엔진', fit: true },
     ],
     disclaimer:
       '연구·교육용 인프라입니다. 기본 빌드는 거래·번들 제출·키 보유를 하지 않으며(fail-closed), 라이브 실행은 다중 게이트 잠금 해제가 필요합니다.',

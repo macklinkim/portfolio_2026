@@ -3,10 +3,10 @@ import type { ProjectImage } from '../data/site'
 
 /**
  * BrowserFrame — 프로젝트 스크린샷을 진짜 "창"처럼 보여준다.
- * 위아래로 긴 원본 스샷을 가로폭에 맞춰 축소(w-full·자연 높이)하고, 고정 높이 뷰포트 안에서
- * 사용자가 마우스 휠/드래그/키보드로 위→아래 스크롤하며 본다(실제 윈도우 스크롤바).
- * 토큰: Paper 표면 · Sage 보더 · elevatedcards radius. CLS 방지: 뷰포트 aspect 고정.
- * 접근성: 스크롤 영역 tabIndex=0 + aria-label, 키보드 화살표 스크롤 가능.
+ * 기본: 위아래로 긴 원본 스샷을 가로폭에 맞춰 축소하고, 고정 높이 뷰포트 안에서 마우스 휠/드래그/
+ * 키보드로 위→아래 스크롤하며 본다(실제 윈도우 스크롤바).
+ * image.fit=true: 스크롤 없이 이미지 전체를 자연 높이로 펼쳐 보여준다(단일 컨셉 이미지용).
+ * 토큰: Paper 표면 · Sage 보더 · elevatedcards radius. 접근성: 스크롤 영역 tabIndex=0 + aria-label.
  */
 export function BrowserFrame({
   image,
@@ -22,6 +22,7 @@ export function BrowserFrame({
   label?: string
 }) {
   const aspect = image?.tall ? 'aspect-[16/11]' : 'aspect-[16/10]'
+  const fit = image?.fit === true
   return (
     <div
       className={`group/frame overflow-hidden rounded-[var(--radius-elevatedcards)] border border-hairline bg-paper transition-[transform,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-ink/30 ${className}`}
@@ -37,14 +38,9 @@ export function BrowserFrame({
           <span className="ml-1 truncate font-mono text-[11px] text-steel">{label}</span>
         )}
       </div>
-      {/* 스크롤 뷰포트 — 휠/드래그/키보드로 위→아래 스크롤 */}
-      <div
-        className={`shot-scroll relative w-full overflow-y-auto overflow-x-hidden bg-paper ${aspect}`}
-        tabIndex={0}
-        role="group"
-        aria-label={image ? `${image.alt} (위아래로 스크롤해 보기)` : '프로젝트 미리보기 (위아래로 스크롤)'}
-      >
-        {image ? (
+      {fit && image ? (
+        /* fit 모드 — 스크롤 없이 이미지 전체를 자연 높이로 */
+        <div className="relative w-full bg-paper">
           <img
             src={image.src}
             alt={image.alt}
@@ -52,10 +48,28 @@ export function BrowserFrame({
             decoding="async"
             className="block w-full"
           />
-        ) : (
-          children
-        )}
-      </div>
+        </div>
+      ) : (
+        /* 스크롤 뷰포트 — 휠/드래그/키보드로 위→아래 스크롤 */
+        <div
+          className={`shot-scroll relative w-full overflow-y-auto overflow-x-hidden bg-paper ${aspect}`}
+          tabIndex={0}
+          role="group"
+          aria-label={image ? `${image.alt} (위아래로 스크롤해 보기)` : '프로젝트 미리보기 (위아래로 스크롤)'}
+        >
+          {image ? (
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading={eager ? 'eager' : 'lazy'}
+              decoding="async"
+              className="block w-full"
+            />
+          ) : (
+            children
+          )}
+        </div>
+      )}
     </div>
   )
 }
