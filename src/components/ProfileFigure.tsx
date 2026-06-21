@@ -13,6 +13,43 @@ const HB = 'var(--color-hudson-blue)'
 const SC = 'var(--color-slate-cyan)'
 const MIST = 'var(--color-mist)'
 
+/* 데이터 흐름 펄스 — 각 선을 타고 밝은 점이 이동(클라이언트→허브→클러스터, 순차 스태거).
+   허브로 수렴(phase 0~)한 뒤 클러스터로 팬아웃(후행)해 "데이터가 흘러가는" 느낌. */
+const flows: { from: [number, number]; to: [number, number]; delay: number }[] = [
+  // 수렴 (클라이언트 3 → 허브)
+  { from: [78, 64], to: [303, 100], delay: 0 },
+  { from: [78, 100], to: [303, 100], delay: 0.22 },
+  { from: [78, 136], to: [303, 100], delay: 0.44 },
+  // 팬아웃 (허브 → 클러스터 3) — 수렴이 도착할 즈음 출발
+  { from: [337, 100], to: [486, 72], delay: 1.0 },
+  { from: [337, 100], to: [486, 100], delay: 1.22 },
+  { from: [337, 100], to: [486, 128], delay: 1.44 },
+]
+
+function FlowPulse({ from, to, delay }: { from: [number, number]; to: [number, number]; delay: number }) {
+  const t = { duration: 1.3, repeat: Infinity, repeatDelay: 1.1, delay, ease: 'linear' as const }
+  return (
+    <>
+      {/* 소프트 글로우 */}
+      <motion.circle
+        r={5}
+        fill={HB}
+        initial={{ cx: from[0], cy: from[1], opacity: 0 }}
+        animate={{ cx: [from[0], to[0]], cy: [from[1], to[1]], opacity: [0, 0.18, 0.18, 0] }}
+        transition={t}
+      />
+      {/* 밝은 코어 */}
+      <motion.circle
+        r={2.6}
+        fill={HB}
+        initial={{ cx: from[0], cy: from[1], opacity: 0 }}
+        animate={{ cx: [from[0], to[0]], cy: [from[1], to[1]], opacity: [0, 1, 1, 0] }}
+        transition={t}
+      />
+    </>
+  )
+}
+
 /* 고객사 운영 서버 50여개 ≈ 7열 × 7행(49) 노드 클러스터 */
 const COLS = 7
 const ROWS = 7
@@ -44,7 +81,6 @@ function ServerCluster() {
 
 export function ProfileFigure() {
   const reduce = useReducedMotion()
-  const ease = [0.16, 1, 0.3, 1] as const
 
   return (
     <div className="overflow-hidden rounded-[var(--radius-elevatedcards)] border border-hairline bg-paper">
@@ -79,26 +115,11 @@ export function ProfileFigure() {
         {/* 고객사 운영 서버 50여개 클러스터 */}
         <ServerCluster />
 
-        {/* 데이터 펄스 (reduced-motion 시 정적 점) */}
+        {/* 데이터 흐름 펄스 (reduced-motion 시 정적 점) */}
         {reduce ? (
           <circle cx={320} cy={100} r={3.5} fill={HB} />
         ) : (
-          <>
-            <motion.circle
-              r={3}
-              fill={HB}
-              initial={{ cx: 78, cy: 100, opacity: 0 }}
-              animate={{ cx: [78, 303], cy: [100, 100], opacity: [0, 1, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 0.6, ease }}
-            />
-            <motion.circle
-              r={3}
-              fill={HB}
-              initial={{ cx: 337, cy: 100, opacity: 0 }}
-              animate={{ cx: [337, 486], cy: [100, 100], opacity: [0, 1, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 0.6, delay: 0.8, ease }}
-            />
-          </>
+          flows.map((f, i) => <FlowPulse key={i} from={f.from} to={f.to} delay={f.delay} />)
         )}
       </svg>
 

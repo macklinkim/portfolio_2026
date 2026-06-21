@@ -81,7 +81,7 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease, delay: 0.34 }}
-          className="relative z-99 mx-auto w-full max-w-[340px] lg:mx-0 lg:mr-[0px] lg:max-w-none lg:justify-self-end"
+          className="relative z-100 mx-auto w-full max-w-[340px] lg:mx-0 lg:mr-[0px] lg:max-w-none lg:justify-self-end"
         >
           <BrowserFrame
             eager
