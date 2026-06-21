@@ -42,7 +42,16 @@ export function HeroBackdrop() {
     <motion.div
       aria-hidden
       className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
-      style={{ opacity: reduce ? 0.7 : opacity }}
+      // 하단(+우측 끝)으로 갈수록 페이드 → 별자리 선이 Hero 경계에서 뚝 잘리지 않고 사라짐
+      style={{
+        opacity: reduce ? 0.7 : opacity,
+        WebkitMaskImage:
+          'linear-gradient(to bottom, #000 0%, #000 52%, transparent 88%), linear-gradient(to left, #000 0%, #000 88%, transparent 100%)',
+        WebkitMaskComposite: 'source-in',
+        maskImage:
+          'linear-gradient(to bottom, #000 0%, #000 52%, transparent 88%), linear-gradient(to left, #000 0%, #000 88%, transparent 100%)',
+        maskComposite: 'intersect',
+      }}
       // 앰비언트 드리프트 — 별자리 전체가 천천히 떠다님(라인·노드 함께 → 연결 유지)
       animate={reduce ? undefined : { x: [0, 24, -18, 0], y: [0, -16, 12, 0] }}
       transition={reduce ? undefined : { duration: 16, repeat: Infinity, ease: 'easeInOut' }}
